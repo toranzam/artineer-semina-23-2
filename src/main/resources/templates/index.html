@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Artineer 세미나 프로젝트</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+
+<div  th:replace="~{fragments/header :: header}"></div>
+
+
+<section class="index-section">
+    <div class="grid">
+        <div class="flexbox">
+            <div class="left-box">
+                <div class="left-box-inner">
+                    <h1>
+                        Artineer <br>
+                        Seminar Project
+                        <!--                        chat app으로 일상을<br> 바꿔보세요.-->
+                    </h1>
+                    <p>
+                        Artineer 웹1조가 만들어온 세미나 웹 프로젝트
+                        <!--                        더 쉽고, 더 편리한 나의 일상에 맞는 채팅앱이 여기있습니다.-->
+                    </p>
+                    <button class="button-style-white">
+                        다운로드
+                    </button>
+                    <button class="button-style-transparent">
+                        데모 시작
+                    </button>
+                </div>
+            </div>
+            <div class="right-box">
+                <img class="index-page-image" src="/img/Group2.png" alt="">
+            </div>
+        </div>
+    </div>
+
+</section>
+
+</body>
+</html>

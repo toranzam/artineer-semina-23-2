@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <link rel="stylesheet" href="/css/style.css">
+</head>
+<body>
+
+<div  th:replace="~{fragments/header :: header}"></div>
+
+<section class="articles-section">
+    <div class="articles-table">
+        <div class="table-head">
+            <div class="table-head-inner">
+                <div class="row-top">
+                    <span class="col-id">번호</span>
+                    <span class="col-title">제목</span>
+                </div>
+                <div class="row-bottom">
+                    <span class="col-author">작성자</span>
+                    <span class="col-time">작성일</span>
+                </div>
+            </div>
+        </div>
+        <div class="table-head">
+            <div class="table-head-inner">
+                <div class="row-top">
+                    <span class="col-id">1</span>
+                    <span class="col-title">안녕하세요</span>
+                </div>
+                <div class="row-bottom">
+                    <span class="col-author">Mark</span>
+                    <span class="col-time">2023.10.15</span>
+                </div>
+            </div>
+        </div>
+        <div class="table-head">
+            <div class="table-head-inner">
+                <div class="row-top">
+                    <span class="col-id">2</span>
+                    <span class="col-title">누구세요</span>
+                </div>
+                <div class="row-bottom">
+                    <span class="col-author">Jacob</span>
+                    <span class="col-time">2023.10.15</span>
+                </div>
+            </div>
+        </div>
+        <div class="table-head">
+            <div class="table-head-inner">
+                <div class="row-top">
+                    <span class="col-id">3</span>
+                    <span class="col-title">안녕히가세요</span>
+                </div>
+                <div class="row-bottom">
+                    <span class="col-author">째용</span>
+                    <span class="col-time">2023.10.15</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+</body>
+</html>
