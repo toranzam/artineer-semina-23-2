@@ -20,7 +20,7 @@ import java.util.Optional;
 @Slf4j
 public class controller {
 
-    private final ArticleRepository articleRepository;
+    private final ArticleRepository articleRepository; //시작한닼ㅋ
 
     @GetMapping("/")
     public String showIndex() {
