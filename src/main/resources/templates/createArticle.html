@@ -30,7 +30,7 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <section class="form-section-wide">
-    <form class="form-article" action="/articles/new" th:action="@{/articles/new}"  method="post">
+    <form class="form-article" action="/articles/new" th:action="@{/articles/new}" method="post">
         <div class="form-article-inner">
             <div class="form-outline">
                 <p>제목</p>
@@ -41,26 +41,15 @@
                 <div class="form-content"></div>
                 <input type="hidden" id="quill_html" name="content">
             </div>
+            <div class="form-submit">
+                <button type="submit">만들기</button>
+            </div>
 
         </div>
 
-        <button type="submit">제출</button>
 
     </form>
 </section>
-
-<script src="/node_modules/summernote/dist/summernote-lite.js"></script>
-<!--<script src="/node_modules/summernote/dist/summernote-bs5.js"></script>-->
-<!--<script type="application/javascript">-->
-<!--    $(document).ready(function () {-->
-<!--        $('.fullDescription').summernote({-->
-<!--            height: 500,-->
-<!--            focus: true,-->
-<!--            lang: 'ko-KR'-->
-
-<!--        });-->
-<!--    });-->
-<!--</script>-->
 
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
 <script>
@@ -68,12 +57,12 @@
     var toolbarOption = [
         ['bold', 'italic', 'underline', 'strike'],
         ['blockquote', 'code-block'],
-        [{ 'header': 1 }, { 'header': 2 }],
-        [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-        [{ 'header': [1, 2, 3, 4, 5, 6, false] }],
-        [{ 'color': [] }, { 'background': [] }],
-        [{ 'font': [] }],
-        [{ 'align': [] }],
+        [{'header': 1}, {'header': 2}],
+        [{'list': 'ordered'}, {'list': 'bullet'}],
+        [{'header': [1, 2, 3, 4, 5, 6, false]}],
+        [{'color': []}, {'background': []}],
+        [{'font': []}],
+        [{'align': []}],
         ['clean']
     ]
 
@@ -86,7 +75,7 @@
         placeholder: "내용을 입력해주세요",
 
     });
-    quill.on('text-change',function (){
+    quill.on('text-change', function () {
         document.getElementById("quill_html").value = quill.root.innerHTML
     })
 </script>

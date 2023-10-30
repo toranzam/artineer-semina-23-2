@@ -11,6 +11,17 @@ body {
   }
 }
 
+.btn-submit{
+  padding: 9.2px 20px;
+  border-radius: 0.75rem;
+
+  background: #0d6efd;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 
 
 /* articles.html header */
@@ -189,6 +200,12 @@ body {
     width: 70%;
     max-width: 800px;
 
+    .table-link{
+      display: flex;
+      justify-content: end;
+      margin: 15px 0;
+    }
+
     .table-head {
       border-bottom: 2px solid;
       border-color: #5a5a64;
@@ -336,6 +353,24 @@ body {
           align-items: center;
           margin: 0;
         }
+      }
+      .form-submit{
+        margin: 15px 0;
+        display: flex;
+        justify-content: end;
+        button{
+          //padding: 0.75rem 1.5rem;
+          padding: 9.2px 20px;
+          margin: 0 2px 0 0;
+          border-radius: 0.75rem;
+
+          background: #0d6efd;
+          border: none;
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 400;
+        }
+
       }
     }
   }
