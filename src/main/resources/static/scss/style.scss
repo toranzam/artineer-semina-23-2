@@ -1,27 +1,31 @@
+@import "fonts";
+
+
 * {
-  font-family: Arial;
+  font-family: "Noto Sans KR", serif;
+  font-weight: 400;
 }
 
 body {
   font-weight: 300;
   margin: 0;
-  a{
+
+  a {
     text-decoration: none;
     color: #000;
   }
 }
 
-.btn-submit{
+.btn-submit {
   padding: 9.2px 20px;
   border-radius: 0.75rem;
 
-  background: #0d6efd;
+  background: #1e71ff;
   border: none;
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
 }
-
 
 
 /* articles.html header */
@@ -87,7 +91,6 @@ body {
 
   .grid {
     max-width: 1160px;
-    font-family: Arial;
     margin: 0 auto;
 
     .flexbox {
@@ -104,10 +107,10 @@ body {
 
         .left-box-inner {
           h1 {
-            font-size: 50px;
-            font-weight: bold;
             margin-bottom: 18px;
             line-height: 150%;
+            font-weight: bold;
+            font-size: 50px;
           }
 
           p {
@@ -200,15 +203,9 @@ body {
     width: 70%;
     max-width: 800px;
 
-    .table-link{
-      display: flex;
-      justify-content: end;
-      margin: 15px 0;
-    }
-
     .table-head {
       border-bottom: 2px solid;
-      border-color: #5a5a64;
+      border-color: #d0d0d0;
       padding: 6px 9px;
 
       .table-head-inner {
@@ -245,6 +242,12 @@ body {
           }
         }
       }
+    }
+
+    .table-link {
+      display: flex;
+      justify-content: end;
+      margin: 15px 2px 15px 0;
     }
   }
 }
@@ -341,7 +344,7 @@ body {
       //width: 1160px;
 
       .form-outline {
-        .form-content{
+        .form-content {
           height: 400px;
         }
 
@@ -354,17 +357,19 @@ body {
           margin: 0;
         }
       }
-      .form-submit{
+
+      .form-submit {
         margin: 15px 0;
         display: flex;
         justify-content: end;
-        button{
+
+        button {
           //padding: 0.75rem 1.5rem;
           padding: 9.2px 20px;
           margin: 0 2px 0 0;
           border-radius: 0.75rem;
 
-          background: #0d6efd;
+          background: #1e71ff;
           border: none;
           color: #fff;
           font-size: 1rem;

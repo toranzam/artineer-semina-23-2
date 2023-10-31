@@ -1,7 +1,6 @@
 package com.artineer.artineersemina232.controller;
 
 
-import ch.qos.logback.classic.sift.AppenderFactoryUsingJoran;
 import com.artineer.artineersemina232.dto.ArticleDto;
 import com.artineer.artineersemina232.entity.Article;
 import com.artineer.artineersemina232.repository.ArticleRepository;
@@ -69,7 +68,7 @@ public class controller {
 
         model.addAttribute("article", article.get());
 
-        return "/show";
+        return "showArticle";
     }
 
 
