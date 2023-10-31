@@ -1,11 +1,14 @@
 package com.artineer.artineersemina232.auth;
 
+import com.artineer.artineersemina232.entity.UserEntity;
 import lombok.Getter;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 
 import java.util.List;
 
 @Getter
-public class AuthUser extends User{
+public class AuthUser extends User {
     private UserEntity userEntity;
 
     public AuthUser(UserEntity userEntity) {
