@@ -9,7 +9,7 @@ import java.util.List;
 
 @Getter
 public class AuthUser extends User {
-    private UserEntity userEntity;
+    private final UserEntity userEntity;
 
     public AuthUser(UserEntity userEntity) {
         super(userEntity.getUsername(), userEntity.getPassword(), List.of(new SimpleGrantedAuthority("ROLE_USER")));
