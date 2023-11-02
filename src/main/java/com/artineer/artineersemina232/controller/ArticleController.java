@@ -1,9 +1,11 @@
 package com.artineer.artineersemina232.controller;
 
 
+import com.artineer.artineersemina232.auth.CurrentUser;
 import com.artineer.artineersemina232.dto.ArticleDto;
 import com.artineer.artineersemina232.dto.UserDto;
 import com.artineer.artineersemina232.entity.Article;
+import com.artineer.artineersemina232.entity.UserEntity;
 import com.artineer.artineersemina232.repository.ArticleRepository;
 import com.artineer.artineersemina232.service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -45,17 +47,16 @@ public class ArticleController {
     }
 
     @PostMapping("/articles/new")
-    public String createNewArticle(@ModelAttribute ArticleDto articleDto) {
+    public String createNewArticle(@ModelAttribute ArticleDto articleDto, @CurrentUser UserEntity userEntity) {
+
+        System.out.println("articleDto = " + articleDto + ", userEntity = " + userEntity);
 
         Article article = Article.builder()
                 .title(articleDto.getTitle())
-                .author(articleDto.getAuthor())
+                .author(userEntity.getUsername())
                 .content(articleDto.getContent())
                 .localDateTime(LocalDateTime.now())
                 .build();
-
-        System.out.println("controller.createNewArticle");
-        System.out.println("articleDto = " + articleDto);
 
         articleRepository.save(article);
 

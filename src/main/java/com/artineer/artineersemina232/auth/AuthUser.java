@@ -9,6 +9,7 @@ import java.util.List;
 
 @Getter
 public class AuthUser extends User {
+    
     private final UserEntity userEntity;
 
     public AuthUser(UserEntity userEntity) {

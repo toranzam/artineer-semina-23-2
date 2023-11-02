@@ -36,7 +36,7 @@
                     </div>
                     <div class="row-bottom">
                         <span class="col-author" th:text="*{article.author}">Mark</span>
-                        <span class="col-time" th:text="*{article.getLocalDateTime()}">2023.10.15</span>
+                        <span class="col-time" th:text="*{#temporals.format(article.localDateTime, 'yyyy-MM-dd HH:mm')}">2023.10.15</span>
                     </div>
                 </div>
             </div>

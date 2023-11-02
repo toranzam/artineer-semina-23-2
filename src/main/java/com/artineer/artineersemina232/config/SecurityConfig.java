@@ -21,7 +21,7 @@ public class SecurityConfig {
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests(
-                        auth -> auth.antMatchers("/login","/loginPage" ,"/signUp", "/h2-console/**"
+                        auth -> auth.antMatchers("/", "/login", "/loginPage", "/signUp", "/h2-console/**"
                                         , "/signUp/**").permitAll()
                                 .anyRequest().authenticated()
                 )
@@ -32,19 +32,19 @@ public class SecurityConfig {
                         .permitAll()
                 )
                 .csrf(csrf -> csrf.disable())
-                .headers( headers -> headers.frameOptions().disable());
+                .headers(headers -> headers.frameOptions().disable());
 
         return http.build();
 
     }
 
     @Bean
-    public WebSecurityCustomizer webSecurityCustomizer(){
+    public WebSecurityCustomizer webSecurityCustomizer() {
         return web -> web.ignoring()
                 .requestMatchers(PathRequest
                         .toStaticResources()
                         .atCommonLocations())
-                .antMatchers("/fonts/**","/img/**", "/css/**" , "/scss/**")
+                .antMatchers("/fonts/**", "/img/**", "/css/**", "/scss/**")
                 .antMatchers("/h2-console/**");
 
         //        return web -> web.ignoring()
