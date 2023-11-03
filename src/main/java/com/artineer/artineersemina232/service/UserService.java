@@ -17,6 +17,8 @@ public class UserService {
 
     private final PasswordEncoder passwordEncoder;
 
+
+
     public UserEntity saveNewUser(UserDto userDto) {
         log.info(userDto.toString());
         System.out.println(userDto);

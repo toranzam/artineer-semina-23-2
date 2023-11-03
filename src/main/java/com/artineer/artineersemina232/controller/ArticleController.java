@@ -6,6 +6,7 @@ import com.artineer.artineersemina232.dto.ArticleDto;
 import com.artineer.artineersemina232.entity.Article;
 import com.artineer.artineersemina232.entity.UserEntity;
 import com.artineer.artineersemina232.repository.ArticleRepository;
+import com.artineer.artineersemina232.service.ArticleService;
 import com.artineer.artineersemina232.service.UserService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -24,11 +25,11 @@ import java.util.Optional;
 @Slf4j
 public class ArticleController {
 
-    private final UserService userService;
+    private final ArticleService articleService;
 
     private final ArticleRepository articleRepository; //시작한닼ㅋ
 
-    static final String SHOW_ARTICLES_PAGE = "/article/articles";
+    static final String SHOW_ARTICLES_PAGE = "/articles";
 
     static final String NEW_ARTICLE_FORM = "/articles/new";
 
@@ -51,18 +52,15 @@ public class ArticleController {
     @PostMapping(NEW_ARTICLE_FORM)
     public String createNewArticle(@ModelAttribute ArticleDto articleDto, @CurrentUser UserEntity userEntity) {
 
-        Article article = Article.builder()
-                .title(articleDto.getTitle())
-                .author(userEntity.getUsername())
-                .content(articleDto.getContent())
-                .localDateTime(LocalDateTime.now())
-                .build();
+        Article article = articleService.toEntity(articleDto, userEntity);
 
         articleRepository.save(article);
 
         return "redirect:/article/articles";
 
     }
+
+
 
     @GetMapping("/articles/{id}")
     public String showDetail(@PathVariable Long id, Model model) {
