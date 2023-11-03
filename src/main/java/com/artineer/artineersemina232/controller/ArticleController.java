@@ -3,7 +3,6 @@ package com.artineer.artineersemina232.controller;
 
 import com.artineer.artineersemina232.auth.CurrentUser;
 import com.artineer.artineersemina232.dto.ArticleDto;
-import com.artineer.artineersemina232.dto.UserDto;
 import com.artineer.artineersemina232.entity.Article;
 import com.artineer.artineersemina232.entity.UserEntity;
 import com.artineer.artineersemina232.repository.ArticleRepository;
@@ -29,27 +28,28 @@ public class ArticleController {
 
     private final ArticleRepository articleRepository; //시작한닼ㅋ
 
-    @GetMapping("/articles")
+    static final String SHOW_ARTICLES_PAGE = "/article/articles";
+
+    static final String NEW_ARTICLE_FORM = "/articles/new";
+
+    @GetMapping(SHOW_ARTICLES_PAGE)
     public String showArticles(Model model) {
 
         List<Article> articles = articleRepository.findAll();
 
         model.addAttribute("articles", articles);
 
-        return "articlesTest";
+        return "/article/articles";
     }
 
-    @GetMapping("/articles/new")
+    @GetMapping(NEW_ARTICLE_FORM)
     public String showCreateNewArticle() {
 
-
-        return "createArticle";
+        return "/article/createArticle";
     }
 
-    @PostMapping("/articles/new")
+    @PostMapping(NEW_ARTICLE_FORM)
     public String createNewArticle(@ModelAttribute ArticleDto articleDto, @CurrentUser UserEntity userEntity) {
-
-        System.out.println("articleDto = " + articleDto + ", userEntity = " + userEntity);
 
         Article article = Article.builder()
                 .title(articleDto.getTitle())
@@ -60,17 +60,17 @@ public class ArticleController {
 
         articleRepository.save(article);
 
-        return "redirect:/articles";
+        return "redirect:/article/articles";
 
     }
 
     @GetMapping("/articles/{id}")
-    public String showDetail(@PathVariable Long id, Model model){
+    public String showDetail(@PathVariable Long id, Model model) {
         Optional<Article> article = articleRepository.findById(id);
 
         model.addAttribute("article", article.get());
 
-        return "showArticle";
+        return "/article/showArticle";
     }
 
 
