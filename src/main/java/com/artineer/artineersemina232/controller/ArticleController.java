@@ -56,7 +56,7 @@ public class ArticleController {
 
         articleRepository.save(article);
 
-        return "redirect:/article/articles";
+        return "redirect:/articles";
 
     }
 
@@ -69,6 +69,20 @@ public class ArticleController {
         model.addAttribute("article", article.get());
 
         return "/article/showArticle";
+    }
+
+    @GetMapping("/articles/delete/{id}")
+    public String deleteArticle(@PathVariable Long id){
+
+        Optional<Article> target = articleRepository.findById(id);
+
+        if(target.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+
+        articleRepository.delete(target.get());
+
+        return "redirect:/articles";
     }
 
 

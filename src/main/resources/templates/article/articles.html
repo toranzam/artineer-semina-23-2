@@ -27,16 +27,18 @@
                 </div>
             </div>
         </div>
-        <a th:each=" article : ${articles}" th:href="@{/articles/} + ${article.id}">
-            <div class="table-head" >
+
+        <a th:each=" article : ${articles}" th:href="@{/articles/{id}(id=${article.id})}">
+            <div class="table-head">
                 <div class="table-head-inner">
                     <div class="row-top">
                         <span class="col-id" th:text="*{article.id}">1</span>
-                        <span class="col-title" th:text="*{article.title}">안녕하세요</span>
+                        <span class="col-title" th:text="*{article.title}">제목</span>
                     </div>
                     <div class="row-bottom">
-                        <span class="col-author" th:text="*{article.author}">Mark</span>
-                        <span class="col-time" th:text="*{#temporals.format(article.localDateTime, 'yyyy-MM-dd HH:mm')}">2023.10.15</span>
+                        <span class="col-author" th:text="*{article.author}">사용자이름</span>
+                        <span class="col-time"
+                              th:text="*{#temporals.format(article.localDateTime, 'yyyy-MM-dd HH:mm')}">2023.10.15</span>
                     </div>
                 </div>
             </div>
