@@ -28,7 +28,7 @@ body {
 }
 
 
-/* articles.html header */
+/* studyPage.html header */
 .index-header {
   .nav-container {
     background-color: #1e71ff;
@@ -309,8 +309,13 @@ body {
   display: flex;
   justify-content: center;
 
+  h1{
+    font-size: 28px;
+    font-weight: 400;
+    text-align: center;
+  }
   .login-form {
-    margin: 150px 0 0 0;
+    margin: 120px 0 0 0;
     width: 400px;
     display: flex;
     flex-direction: column;
@@ -318,19 +323,20 @@ body {
     .login-form-inner {
       margin: 0 0 10px 0;
 
-
       .form-label {
         display: block;
         margin: 0 0 3px 10px;
         font-size: 18px;
 
-
       }
 
 
       .form-control-outline {
+        display: flex;
+        justify-content: center;
+
         input {
-          width: 100%;
+          width: 92%;
           background-color: #EEEEEE;
           padding: 9px 9px 9px 15px;
           border-radius: 10px;
@@ -349,6 +355,15 @@ body {
         margin: 5px 0 0 20px;
         color: #5a5a64;
       }
+    }
+
+    .form-footer{
+      display: flex;
+      justify-content: space-between;
+
+      .form-check{
+      }
+      .form-signup{}
     }
 
 

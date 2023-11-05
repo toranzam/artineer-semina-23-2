@@ -34,7 +34,7 @@ body a {
   font-weight: 400;
 }
 
-/* articles.html header */
+/* studyPage.html header */
 .index-header .nav-container {
   background-color: #1e71ff;
   padding: 0 60px;
@@ -256,8 +256,13 @@ body a {
   display: flex;
   justify-content: center;
 }
+.form-section h1 {
+  font-size: 28px;
+  font-weight: 400;
+  text-align: center;
+}
 .form-section .login-form {
-  margin: 150px 0 0 0;
+  margin: 120px 0 0 0;
   width: 400px;
   display: flex;
   flex-direction: column;
@@ -270,8 +275,12 @@ body a {
   margin: 0 0 3px 10px;
   font-size: 18px;
 }
+.form-section .login-form .login-form-inner .form-control-outline {
+  display: flex;
+  justify-content: center;
+}
 .form-section .login-form .login-form-inner .form-control-outline input {
-  width: 100%;
+  width: 92%;
   background-color: #EEEEEE;
   padding: 9px 9px 9px 15px;
   border-radius: 10px;
@@ -280,6 +289,10 @@ body a {
 .form-section .login-form .login-form-inner .form-text {
   margin: 5px 0 0 20px;
   color: #5a5a64;
+}
+.form-section .login-form .form-footer {
+  display: flex;
+  justify-content: space-between;
 }
 .form-section .form-check {
   margin: 0 0 10px 0;
