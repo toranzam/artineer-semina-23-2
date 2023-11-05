@@ -7,8 +7,10 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 @Service
+@Transactional
 @Slf4j
 @RequiredArgsConstructor
 public class UserService {
@@ -16,7 +18,6 @@ public class UserService {
     private final UserRepository userRepository;  //파이널이 없으면 객체에 값이 안 들어감.
 
     private final PasswordEncoder passwordEncoder;
-
 
 
     public UserEntity saveNewUser(UserDto userDto) {

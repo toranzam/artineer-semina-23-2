@@ -4,10 +4,12 @@ import com.artineer.artineersemina232.dto.ArticleDto;
 import com.artineer.artineersemina232.entity.Article;
 import com.artineer.artineersemina232.entity.UserEntity;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 
 @Service
+@Transactional
 public class ArticleService {
 
     public Article toEntity(ArticleDto articleDto, UserEntity userEntity) {

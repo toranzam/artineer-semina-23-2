@@ -197,7 +197,6 @@ body {
   display: flex;
   justify-content: center;
 
-
   .articles-table {
     margin: 50px 0 0 0;
     width: 70%;
@@ -205,8 +204,11 @@ body {
 
     .table-head {
       border-bottom: 2px solid;
-      border-color: #d0d0d0;
-      padding: 2px 9px;
+      //border-color: #d0d0d0;
+      color: #fff;
+      background: #1e71ff;
+      opacity: 0.9;
+      padding: 5px 0;
 
       .table-head-inner {
         align-items: center;
@@ -236,6 +238,51 @@ body {
         .row-bottom {
           display: flex;
           align-items: center;
+
+          .col-author {
+            text-align: left;
+            width: 7rem;
+          }
+
+          .col-time {
+            width: 6rem;
+          }
+        }
+      }
+    }
+
+    .table-body {
+      border-bottom: 2px solid #d0d0d0;
+
+      .table-body-inner {
+        align-items: center;
+        width: 100%;
+        display: flex;
+        text-align: center;
+
+        .row-top {
+          display: flex;
+          flex: 1;
+
+          .col-id {
+            width: 6rem;
+          }
+
+          .col-title {
+            text-align: left;
+            flex: 1;
+            margin-right: 1rem;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            width: 100px;
+            overflow: hidden;
+          }
+        }
+
+        .row-bottom {
+          display: flex;
+          align-items: center;
+
           .col-author {
             text-align: left;
             width: 7rem;
@@ -257,6 +304,7 @@ body {
 }
 
 /* --- From Section ---*/
+
 .form-section {
   display: flex;
   justify-content: center;
@@ -330,7 +378,8 @@ body {
   }
 }
 
-/* Article NewPage */
+
+/* Create Article Page */
 .form-section-wide {
   margin: 40px 0 0 0;
   display: flex;
@@ -379,7 +428,41 @@ body {
           font-size: 1rem;
           font-weight: 400;
         }
+      }
+    }
+  }
+}
 
+/* Show Article Page*/
+.article-section {
+  display: flex;
+  justify-content: center;
+
+  .article-section-inner {
+    width: 100%;
+    max-width: 1000px;
+    margin: 50px 0 0 0;
+
+    .article {
+      border: 1px solid rgba(164, 164, 164, 0.3);
+      border-radius: 15px;
+      padding: 30px 30px;
+      .article-inner {
+        .article-title {
+          h1 {
+            font-size: 26px;
+            margin: 0;
+          }
+        }
+        .article-info{
+
+        }
+        .article-content{
+          p{
+            font-size: 15px;
+            margin: 0;
+          }
+        }
       }
     }
   }

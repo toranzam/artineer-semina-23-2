@@ -171,8 +171,10 @@ body a {
 }
 .articles-section .articles-table .table-head {
   border-bottom: 2px solid;
-  border-color: #d0d0d0;
-  padding: 2px 9px;
+  color: #fff;
+  background: #1e71ff;
+  opacity: 0.9;
+  padding: 5px 0;
 }
 .articles-section .articles-table .table-head .table-head-inner {
   align-items: center;
@@ -205,6 +207,42 @@ body a {
   width: 7rem;
 }
 .articles-section .articles-table .table-head .table-head-inner .row-bottom .col-time {
+  width: 6rem;
+}
+.articles-section .articles-table .table-body {
+  border-bottom: 2px solid #d0d0d0;
+}
+.articles-section .articles-table .table-body .table-body-inner {
+  align-items: center;
+  width: 100%;
+  display: flex;
+  text-align: center;
+}
+.articles-section .articles-table .table-body .table-body-inner .row-top {
+  display: flex;
+  flex: 1;
+}
+.articles-section .articles-table .table-body .table-body-inner .row-top .col-id {
+  width: 6rem;
+}
+.articles-section .articles-table .table-body .table-body-inner .row-top .col-title {
+  text-align: left;
+  flex: 1;
+  margin-right: 1rem;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100px;
+  overflow: hidden;
+}
+.articles-section .articles-table .table-body .table-body-inner .row-bottom {
+  display: flex;
+  align-items: center;
+}
+.articles-section .articles-table .table-body .table-body-inner .row-bottom .col-author {
+  text-align: left;
+  width: 7rem;
+}
+.articles-section .articles-table .table-body .table-body-inner .row-bottom .col-time {
   width: 6rem;
 }
 .articles-section .articles-table .table-link {
@@ -262,7 +300,7 @@ body a {
   cursor: inherit;
 }
 
-/* Article NewPage */
+/* Create Article Page */
 .form-section-wide {
   margin: 40px 0 0 0;
   display: flex;
@@ -300,6 +338,30 @@ body a {
   color: #fff;
   font-size: 1rem;
   font-weight: 400;
+}
+
+/* Show Article Page*/
+.article-section {
+  display: flex;
+  justify-content: center;
+}
+.article-section .article-section-inner {
+  width: 100%;
+  max-width: 1000px;
+  margin: 50px 0 0 0;
+}
+.article-section .article-section-inner .article {
+  border: 1px solid rgba(164, 164, 164, 0.3);
+  border-radius: 15px;
+  padding: 30px 30px;
+}
+.article-section .article-section-inner .article .article-inner .article-title h1 {
+  font-size: 26px;
+  margin: 0;
+}
+.article-section .article-section-inner .article .article-inner .article-content p {
+  font-size: 15px;
+  margin: 0;
 }
 
 /*# sourceMappingURL=style.css.map */
