@@ -309,11 +309,12 @@ body {
   display: flex;
   justify-content: center;
 
-  h1{
+  h1 {
     font-size: 28px;
     font-weight: 400;
     text-align: center;
   }
+
   .login-form {
     margin: 120px 0 0 0;
     width: 400px;
@@ -357,13 +358,15 @@ body {
       }
     }
 
-    .form-footer{
+    .form-footer {
       display: flex;
       justify-content: space-between;
 
-      .form-check{
+      .form-check {
       }
-      .form-signup{}
+
+      .form-signup {
+      }
     }
 
 
@@ -462,18 +465,54 @@ body {
       border: 1px solid rgba(164, 164, 164, 0.3);
       border-radius: 15px;
       padding: 30px 30px;
+
       .article-inner {
-        .article-title {
-          h1 {
-            font-size: 26px;
-            margin: 0;
+
+        .article-header {
+          display: flex;
+          justify-content: space-between;
+
+          .article-header-left {
+            .article-title {
+              h1 {
+                font-size: 26px;
+                margin: 0;
+              }
+
+              p {
+                margin: 0;
+              }
+            }
+
           }
         }
-        .article-info{
+
+        .article-header-right {
+          display: flex;
+          flex-direction: column;
+
+          .article-info-first {
+            display: flex;
+            justify-content: end;
+            gap: 7px;
+            button{
+              align-items: center;
+              margin: 0 0 0 5px;
+            }
+
+          }
+          .article-info-second{
+            display: flex;
+            justify-content: end;
+            margin: 10px 0 0 0;
+
+
+          }
 
         }
-        .article-content{
-          p{
+
+        .article-content {
+          p {
             font-size: 15px;
             margin: 0;
           }

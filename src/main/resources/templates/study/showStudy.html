@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,14 +23,28 @@
     <div class="article-section-inner">
         <div class="article">
             <div class="article-inner">
-                <div class="article-title">
-                    <h1 th:text="${study.title}"></h1>
+                <div class="article-header">
+                    <div class="article-header-left">
+                        <div class="article-title">
+                            <h1 th:text="${study.title}"></h1>
+                            <p th:text="${study.shortDescription}"></p>
+                        </div>
+                    </div>
+                    <div class="article-header-right">
+                        <div class="article-info-first">
+                            <button class="btn-submit">스터디 가입</button>
+                            <button class="btn-submit">공개</button>
+                        </div>
+                        <div class="article-info-second">
+                            <a th:text="${study.author}">닉네임</a>
+                            <span>작성일</span>
+                            <time th:text="*{#temporals.format(study.localDateTime, 'yyyy-MM-dd HH:mm')}">yyyy-MM-dd
+                            </time>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="article-info">
-                    <a th:text="${study.author}">닉네임</a>
-                    <span>작성일</span>
-                    <time th:text="*{#temporals.format(study.localDateTime, 'yyyy-MM-dd HH:mm')}">yyyy-MM-dd</time>
-                </div>
+
                 <div class="article-content">
                     <p th:utext="${study.studyContent}"></p>
                 </div>
@@ -41,7 +55,6 @@
             <a class="btn-submit" th:href="@{/study/delete/{id}(id=${study.id})}">삭제</a>
         </div>
     </div>
-
 
 
 </section>

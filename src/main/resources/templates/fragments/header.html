@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"
+      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <body>
 
@@ -17,7 +18,8 @@
                     <li><a href="/articles">게시판</a></li>
                     <li><a>예제</a></li>
                     <li><a>예제</a></li>
-                    <li class="nav_link"><a href="/loginPage">로그인</a></li>
+                    <li class="nav_link" sec:authorize="!isAuthenticated()"><a href="/loginPage">로그인</a></li>
+                    <li class="nav_link" sec:authorize="isAuthenticated()"><a href="/logout">로그아웃</a></li>
                 </div>
             </div>
         </div>

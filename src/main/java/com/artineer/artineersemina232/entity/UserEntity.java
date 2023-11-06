@@ -1,15 +1,13 @@
 package com.artineer.artineersemina232.entity;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.*;
 
 @Entity
 @Builder
-@Data
+@Getter
+@Setter
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserEntity {
@@ -23,4 +21,6 @@ public class UserEntity {
 
     @Column(unique = true)
     private String password;
+
+
 }

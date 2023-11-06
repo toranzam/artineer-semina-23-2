@@ -368,9 +368,34 @@ body a {
   border-radius: 15px;
   padding: 30px 30px;
 }
-.article-section .article-section-inner .article .article-inner .article-title h1 {
+.article-section .article-section-inner .article .article-inner .article-header {
+  display: flex;
+  justify-content: space-between;
+}
+.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title h1 {
   font-size: 26px;
   margin: 0;
+}
+.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title p {
+  margin: 0;
+}
+.article-section .article-section-inner .article .article-inner .article-header-right {
+  display: flex;
+  flex-direction: column;
+}
+.article-section .article-section-inner .article .article-inner .article-header-right .article-info-first {
+  display: flex;
+  justify-content: end;
+  gap: 7px;
+}
+.article-section .article-section-inner .article .article-inner .article-header-right .article-info-first button {
+  align-items: center;
+  margin: 0 0 0 5px;
+}
+.article-section .article-section-inner .article .article-inner .article-header-right .article-info-second {
+  display: flex;
+  justify-content: end;
+  margin: 10px 0 0 0;
 }
 .article-section .article-section-inner .article .article-inner .article-content p {
   font-size: 15px;

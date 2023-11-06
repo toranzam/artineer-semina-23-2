@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -25,16 +25,16 @@
         <div class="form-article-inner">
             <div class="form-outline">
                 <p>스터디 이름</p>
-                <input type="text" name="studyName">
+                <input type="text" name="title" th:field="${studyDto.title}">
             </div>
             <div class="form-outline">
                 <p>스터디 짧은 소개</p>
-                <input type="text" name="shortDescription">
+                <input type="text" name="shortDescription"  th:field="${studyDto.shortDescription}">
             </div>
             <div class="form-outline">
                 <p>내용</p>
                 <div class="form-content"></div>
-                <input type="hidden" id="quill_html" name="studyContent">
+                <input type="hidden" id="quill_html" name="studyContent"  th:field="${studyDto.content}">
             </div>
             <div class="form-submit">
                 <button type="submit">스터디 만들기</button>
