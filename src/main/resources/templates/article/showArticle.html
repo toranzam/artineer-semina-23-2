@@ -36,9 +36,9 @@
                 </div>
             </div>
         </div>
-        <div style="display: flex; justify-content: end; gap: 10px; margin: 15px 0">
-            <a class="btn-submit" th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
-            <a class="btn-submit" th:href="@{/articles/delete/{id}(id=${article.id})}">삭제</a>
+        <div class="article-btn-container">
+            <a class="btn-submit" th:if="${article.author == userEntity.username}" th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
+            <a class="btn-submit" th:if="${article.author == userEntity.username}" th:href="@{/articles/delete/{id}(id=${article.id})}">삭제</a>
         </div>
     </div>
 

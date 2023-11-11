@@ -425,5 +425,11 @@ body a {
   font-size: 15px;
   margin: 0;
 }
+.article-section .article-section-inner .article-btn-container {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin: 15px 10px;
+}
 
 /*# sourceMappingURL=style.css.map */

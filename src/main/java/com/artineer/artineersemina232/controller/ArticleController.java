@@ -59,7 +59,7 @@ public class ArticleController {
 
 
     @GetMapping("/articles/{id}")
-    public String showDetail(@PathVariable Long id, Model model) {
+    public String showDetail(@PathVariable Long id, @CurrentUser UserEntity userEntity, Model model) {
         Optional<Article> article = articleRepository.findById(id);
 
         if (article.isEmpty()) {
@@ -67,6 +67,7 @@ public class ArticleController {
         }
 
         model.addAttribute("article", article.get());
+        model.addAttribute(userEntity);
 
         return "/article/showArticle";
     }
