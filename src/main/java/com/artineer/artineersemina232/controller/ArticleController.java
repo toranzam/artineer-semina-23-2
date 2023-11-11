@@ -72,29 +72,38 @@ public class ArticleController {
     }
 
     @GetMapping("/articles/delete/{id}")
-    public String deleteArticle(@PathVariable Long id) {
+    public String deleteArticle(@PathVariable Long id, @CurrentUser UserEntity userEntity) {
 
-        Optional<Article> target = articleRepository.findById(id);
+        Optional<Article> findArticle = articleRepository.findById(id);
 
-        if (target.isEmpty()) {
-            throw new IllegalArgumentException();
+        if (findArticle.isEmpty()) {
+            throw new IllegalArgumentException("삭제할 게시물이 존재하지않습니다");
         }
 
-        articleRepository.delete(target.get());
+        if (!findArticle.get().getAuthor().equals(userEntity.getUsername())){
+            throw new IllegalArgumentException("삭제할 권한이 없습니다");
+        }
+
+        articleRepository.delete(findArticle.get());
 
         return "redirect:/articles";
     }
 
     @GetMapping("articles/edit/{id}")
-    public String showEditForm(@PathVariable Long id) {
+    public String showEditForm(@PathVariable Long id, Model model, @CurrentUser UserEntity userEntity) {
         Optional<Article> findArticle = articleRepository.findById(id);
 
         if(findArticle.isEmpty()){
-            throw new IllegalArgumentException("");
+            throw new IllegalArgumentException("수정할 게시물이 존재하지 않습니다");
         }
 
+        if (!findArticle.get().getAuthor().equals(userEntity.getUsername())){
+            throw new IllegalArgumentException("수정할 권한이 없습니다");
+        }
 
-        return "";
+        model.addAttribute("article", findArticle.get());
+
+        return "/article/editArticle";
     }
 
 
