@@ -36,6 +36,8 @@ public class Study {
 
     private LocalDateTime localDateTime;
 
+    private boolean published;
+
     public void addManager(UserEntity userEntity) {
         this.managers.add(userEntity);
     }
@@ -45,7 +47,7 @@ public class Study {
     }
 
     @Builder
-    public Study(Long id, String author, String title, String shortDescription, String studyContent, String path, LocalDateTime localDateTime) {
+    public Study(Long id, String author, String title, String shortDescription, String studyContent, String path, LocalDateTime localDateTime, boolean published) {
         this.id = id;
         this.author = author;
         this.title = title;
@@ -53,5 +55,8 @@ public class Study {
         this.studyContent = studyContent;
         this.path = path;
         this.localDateTime = localDateTime;
+        this.published = published;
     }
+
+
 }

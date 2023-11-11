@@ -35,8 +35,8 @@
                     </div>
                     <div class="article-header-right">
                         <div class="article-info-first">
-                            <button class="btn-submit">스터디 가입</button>
-                            <button class="btn-submit">공개</button>
+                            <button th:if="${study.published == true}" class="btn-submit">공개</button>
+                            <button th:if="${study.published == false}" class="btn-secondary">비공개</button>
                         </div>
                         <div class="article-info-second">
                             <a th:text="${study.author}">닉네임</a>

@@ -34,6 +34,16 @@ body a {
   font-weight: 400;
 }
 
+.btn-secondary {
+  padding: 9.2px 20px;
+  border-radius: 0.75rem;
+  background: #6d6d70;
+  border: none;
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 400;
+}
+
 /* studyPage.html header */
 .index-header .nav-container {
   background-color: #1e71ff;

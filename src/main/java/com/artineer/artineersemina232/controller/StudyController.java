@@ -6,6 +6,7 @@ import com.artineer.artineersemina232.dto.StudyDto;
 import com.artineer.artineersemina232.entity.Study;
 import com.artineer.artineersemina232.entity.UserEntity;
 import com.artineer.artineersemina232.repository.StudyRepository;
+import com.artineer.artineersemina232.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -31,6 +32,8 @@ import java.util.UUID;
 public class StudyController {
 
     private final StudyRepository studyRepository;
+
+    private final UserRepository userRepository;
 
     @GetMapping("/study")
     public String showStudyPage(Model model) {
@@ -68,6 +71,7 @@ public class StudyController {
                 .localDateTime(LocalDateTime.now())
                 .author(userEntity.getUsername())
                 .path(uuid.toString())
+                .published(false)
                 .build();
 
 
@@ -131,5 +135,27 @@ public class StudyController {
 
         return "/study/studyMembers";
 
+    }
+
+    @Transactional
+    @GetMapping("/study/{path}/addMember")
+    public String studyAddMember(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+        Optional<Study> findStudy = studyRepository.findByPath(path);
+
+        if(findStudy.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+
+        Study study = findStudy.get();
+
+        if (study.getMembers().contains(userRepository.findByUsername(userEntity.getUsername()))){
+            throw new IllegalArgumentException("이미 스터디에 가입된 사용자입니다");
+        }
+
+        study.addMember(userEntity);
+
+        studyRepository.save(study);
+
+        return "redirect:/study";
     }
 }
