@@ -7,6 +7,7 @@ import com.artineer.artineersemina232.entity.Study;
 import com.artineer.artineersemina232.entity.UserEntity;
 import com.artineer.artineersemina232.repository.StudyRepository;
 import lombok.RequiredArgsConstructor;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -16,16 +17,17 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import java.net.URLEncoder;
-import java.nio.charset.StandardCharsets;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 import java.util.Set;
 import java.util.UUID;
 
+
 @Controller
 @RequiredArgsConstructor
+@Slf4j
+
 public class StudyController {
 
     private final StudyRepository studyRepository;
@@ -49,6 +51,7 @@ public class StudyController {
         return "/study/createStudy";
     }
 
+    @Transactional
     @PostMapping("/study/new")
     public String createNewStudy(@Validated StudyDto studyDto, BindingResult result, @CurrentUser UserEntity userEntity) {
 
@@ -71,25 +74,62 @@ public class StudyController {
         Study newStudy = studyRepository.save(study);
 
         newStudy.addManager(userEntity);
+        newStudy.addMember(userEntity);
+
 
 //        return "redirect:/study/" + URLEncoder.encode(study.getPath(), StandardCharsets.UTF_8);
         return "redirect:/study/" + uuid;
 
     }
 
+
     @Transactional
-    @GetMapping("/study/{uuid}")
-    public String showStudy(@PathVariable String uuid, Model model) {
-        Optional<Study> study = studyRepository.findByPath(uuid);
+    @GetMapping("/study/{path}")
+    public String showStudy(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+        Optional<Study> study = studyRepository.findByPath(path);
 
         if(study.isEmpty()){
             throw new IllegalArgumentException();
         }
 
+        model.addAttribute(userEntity);
         model.addAttribute("study", study.get());
 
 
         return "/study/showStudy";
+
+    }
+
+    @Transactional
+    @GetMapping("/study/{path}/members")
+    public String showStudyMembers(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+        Optional<Study> study = studyRepository.findByPath(path);
+
+        if(study.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+
+
+        model.addAttribute(userEntity);
+        model.addAttribute("study", study.get());
+
+        return "/study/studyMembers";
+
+    }
+
+    @Transactional
+    @GetMapping("/study/{path}/settings")
+    public String showStudySetting(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+        Optional<Study> study = studyRepository.findByPath(path);
+
+        if(study.isEmpty()){
+            throw new IllegalArgumentException();
+        }
+
+        model.addAttribute(userEntity);
+        model.addAttribute("study", study.get());
+
+        return "/study/studyMembers";
 
     }
 }

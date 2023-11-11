@@ -19,6 +19,8 @@ public class Study {
     @ManyToMany
     private Set<UserEntity> managers = new HashSet<>();
 
+    @ManyToMany
+    private Set<UserEntity> members = new HashSet<>();
 
     private String author;
 
@@ -36,6 +38,10 @@ public class Study {
 
     public void addManager(UserEntity userEntity) {
         this.managers.add(userEntity);
+    }
+
+    public void addMember(UserEntity userEntity) {
+        this.members.add(userEntity);
     }
 
     @Builder

@@ -85,5 +85,17 @@ public class ArticleController {
         return "redirect:/articles";
     }
 
+    @GetMapping("articles/edit/{id}")
+    public String showEditForm(@PathVariable Long id) {
+        Optional<Article> findArticle = articleRepository.findById(id);
+
+        if(findArticle.isEmpty()){
+            throw new IllegalArgumentException("");
+        }
+
+
+        return "";
+    }
+
 
 }

@@ -57,7 +57,9 @@
                 </div>
 
                 <div class="article-content">
-                    <p th:utext="${study.studyContent}"></p>
+                    <div class="article-member" th:each="member : ${study.members}">
+                        <p th:text="${member.username}"></p>
+                    </div>
                 </div>
             </div>
         </div>
