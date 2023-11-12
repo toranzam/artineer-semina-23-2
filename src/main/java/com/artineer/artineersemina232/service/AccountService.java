@@ -46,10 +46,8 @@ public class AccountService implements UserDetailsService {
 
         accountRepository.save(account); // DB에 저장
 
-
-
-
     }
+
 
     public void login(String username){
         Account account = accountRepository.findByUsername(username);
