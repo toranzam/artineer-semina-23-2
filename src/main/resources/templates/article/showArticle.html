@@ -23,25 +23,38 @@
     <div class="article-section-inner">
         <div class="article">
             <div class="article-inner">
-                <div class="article-title">
-                    <h1 th:text="${article.getTitle()}"></h1>
+                <div class="article-header">
+                    <div class="article-header-left">
+                        <div class="article-title">
+                            <h1 class="article-h1" th:text="${article.getTitle()}"></h1>
+                        </div>
+                    </div>
+                    <div class="article-header-right">
+                        <div class="article-info-first">
+                            <a th:text="${article.author}">닉네임</a>
+                            <div class="article-time">
+                                <span>작성일</span>
+                                <time th:text="*{#temporals.format(article.localDateTime, 'yyyy-MM-dd HH:mm')}">
+                                    yyyy-MM-dd
+                                </time>
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
-                <div class="article-info">
-                    <a th:text="${article.author}">닉네임</a>
-                    <span>작성일</span>
-                    <time th:text="*{#temporals.format(article.localDateTime, 'yyyy-MM-dd HH:mm')}">yyyy-MM-dd</time>
-                </div>
+
                 <div class="article-content">
                     <p th:utext="${article.getContent()}"></p>
                 </div>
             </div>
         </div>
         <div class="article-btn-container">
-            <a class="btn-submit" th:if="${article.author == account.username}" th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
-            <a class="btn-submit" th:if="${article.author == account.username}" th:href="@{/articles/delete/{id}(id=${article.id})}">삭제</a>
+            <a class="btn-submit" th:if="${article.author == account.username}"
+               th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
+            <a class="btn-submit" th:if="${article.author == account.username}"
+               th:href="@{/articles/delete/{id}(id=${article.id})}">삭제</a>
         </div>
     </div>
-
 
 
 </section>

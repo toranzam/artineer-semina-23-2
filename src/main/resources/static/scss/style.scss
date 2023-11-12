@@ -434,7 +434,7 @@ body {
         input {
           width: 99.5%;
           //width: 1160px;
-          padding: 9px 0px 9px 0px;
+          padding: 9px 10px 9px 10px;
           align-items: center;
           margin: 0;
         }
@@ -488,7 +488,13 @@ body {
 
           .article-header-left {
             .article-title {
-              h1 {
+
+              .article-h1{
+                font-size: 32px;
+                margin: 0;
+              }
+
+              .study-h1{
                 font-size: 32px;
                 margin: 0;
                 color: #1e71ff;

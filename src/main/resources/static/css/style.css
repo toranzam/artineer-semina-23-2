@@ -343,7 +343,7 @@ body a {
 }
 .form-section-wide .form-article .form-article-inner .form-outline input {
   width: 99.5%;
-  padding: 9px 0px 9px 0px;
+  padding: 9px 10px 9px 10px;
   align-items: center;
   margin: 0;
 }
@@ -384,7 +384,11 @@ body a {
   padding: 0 0 10px 0;
   margin: 0 0 10px 0;
 }
-.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title h1 {
+.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title .article-h1 {
+  font-size: 32px;
+  margin: 0;
+}
+.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title .study-h1 {
   font-size: 32px;
   margin: 0;
   color: #1e71ff;

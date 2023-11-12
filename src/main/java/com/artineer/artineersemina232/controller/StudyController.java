@@ -129,11 +129,11 @@ public class StudyController {
             throw new IllegalArgumentException();
         }
 
-        model.addAttribute(account);
         model.addAttribute("study", study.get());
+        model.addAttribute("member", study.get().getMembers().contains(account));
+        model.addAttribute("manager", study.get().getManagers().contains(account));
 
         return "/study/studyMembers";
-
     }
 
     @Transactional
