@@ -336,13 +336,16 @@ body a {
   align-items: center;
 }
 .form-section-wide .form-article .form-article-inner {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
   width: 70%;
 }
 .form-section-wide .form-article .form-article-inner .form-outline .form-content {
   height: 400px;
 }
 .form-section-wide .form-article .form-article-inner .form-outline input {
-  width: 99.5%;
+  width: 97%;
   padding: 9px 10px 9px 10px;
   align-items: center;
   margin: 0;

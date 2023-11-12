@@ -422,6 +422,9 @@ body {
     align-items: center;
 
     .form-article-inner {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
       width: 70%;
       //width: 1160px;
 
@@ -430,14 +433,15 @@ body {
           height: 400px;
         }
 
-
         input {
-          width: 99.5%;
+          width: 97%;
           //width: 1160px;
           padding: 9px 10px 9px 10px;
           align-items: center;
           margin: 0;
         }
+
+
       }
 
       .form-submit {
@@ -489,12 +493,12 @@ body {
           .article-header-left {
             .article-title {
 
-              .article-h1{
+              .article-h1 {
                 font-size: 32px;
                 margin: 0;
               }
 
-              .study-h1{
+              .study-h1 {
                 font-size: 32px;
                 margin: 0;
                 color: #1e71ff;
