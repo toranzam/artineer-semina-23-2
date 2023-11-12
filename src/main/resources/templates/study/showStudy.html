@@ -35,11 +35,6 @@
                     </div>
                     <div class="article-header-right">
                         <div class="article-info-first">
-                            <a th:href="@{/study/{path}/addMember(path=${study.path})}" class="btn-submit">스터디 가입</a>
-                            <a th:if="${study.published == true}" class="btn-submit">공개</a>
-                            <a th:if="${study.published == false}" class="btn-secondary">비공개</a>
-                        </div>
-                        <div class="article-info-second">
                             <a th:text="${study.author}">닉네임</a>
                             <div class="article-time">
                                 <span>작성일</span>
@@ -48,6 +43,14 @@
                             </div>
 
                         </div>
+                        <div class="article-info-second">
+                            <a th:if="!${manager} and !${member} " th:href="@{/study/{path}/addMember(path=${study.path})}" class="btn-submit">스터디 가입</a>
+                            <a th:if="${study.published} and !${manager}" class="btn-submit">공개</a>
+                            <a th:if="!${study.published} and !${manager}" class="btn-secondary">비공개</a>
+                            <a th:href="@{/study/{path}/published(path=${study.path})}" th:if="${study.published} and ${manager}" class="btn-submit">공개</a>
+                            <a th:href="@{/study/{path}/published(path=${study.path})}" th:if="!${study.published} and ${manager}" class="btn-secondary">비공개</a>
+                        </div>
+
                     </div>
                 </div>
 

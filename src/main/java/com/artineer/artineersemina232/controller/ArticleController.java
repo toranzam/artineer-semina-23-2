@@ -4,7 +4,7 @@ package com.artineer.artineersemina232.controller;
 import com.artineer.artineersemina232.auth.CurrentUser;
 import com.artineer.artineersemina232.dto.ArticleDto;
 import com.artineer.artineersemina232.entity.Article;
-import com.artineer.artineersemina232.entity.UserEntity;
+import com.artineer.artineersemina232.entity.Account;
 import com.artineer.artineersemina232.repository.ArticleRepository;
 import com.artineer.artineersemina232.service.ArticleService;
 import lombok.RequiredArgsConstructor;
@@ -48,9 +48,11 @@ public class ArticleController {
     }
 
     @PostMapping(NEW_ARTICLE_FORM)
-    public String createNewArticle(@ModelAttribute ArticleDto articleDto, @CurrentUser UserEntity userEntity) {
+    public String createNewArticle(@ModelAttribute ArticleDto articleDto, @CurrentUser Account account) {
 
-        Article article = articleService.toEntity(articleDto, userEntity);
+
+
+        Article article = articleService.toEntity(articleDto, account);
 
         articleRepository.save(article);
 
@@ -59,7 +61,7 @@ public class ArticleController {
 
 
     @GetMapping("/articles/{id}")
-    public String showDetail(@PathVariable Long id, @CurrentUser UserEntity userEntity, Model model) {
+    public String showDetail(@PathVariable Long id, @CurrentUser Account account, Model model) {
         Optional<Article> article = articleRepository.findById(id);
 
         if (article.isEmpty()) {
@@ -67,13 +69,13 @@ public class ArticleController {
         }
 
         model.addAttribute("article", article.get());
-        model.addAttribute(userEntity);
+        model.addAttribute(account);
 
         return "/article/showArticle";
     }
 
     @GetMapping("/articles/delete/{id}")
-    public String deleteArticle(@PathVariable Long id, @CurrentUser UserEntity userEntity) {
+    public String deleteArticle(@PathVariable Long id, @CurrentUser Account account) {
 
         Optional<Article> findArticle = articleRepository.findById(id);
 
@@ -81,8 +83,8 @@ public class ArticleController {
             throw new IllegalArgumentException("삭제할 게시물이 존재하지않습니다");
         }
 
-        if (!findArticle.get().getAuthor().equals(userEntity.getUsername())){
-            throw new IllegalArgumentException("삭제할 권한이 없습니다");
+        if (!findArticle.get().getAuthor().equals(account.getUsername())){
+            throw new RuntimeException("삭제할 권한이 없습니다");
         }
 
         articleRepository.delete(findArticle.get());
@@ -91,14 +93,14 @@ public class ArticleController {
     }
 
     @GetMapping("articles/edit/{id}")
-    public String showEditForm(@PathVariable Long id, Model model, @CurrentUser UserEntity userEntity) {
+    public String showEditForm(@PathVariable Long id, Model model, @CurrentUser Account account) {
         Optional<Article> findArticle = articleRepository.findById(id);
 
         if(findArticle.isEmpty()){
             throw new IllegalArgumentException("수정할 게시물이 존재하지 않습니다");
         }
 
-        if (!findArticle.get().getAuthor().equals(userEntity.getUsername())){
+        if (!findArticle.get().getAuthor().equals(account.getUsername())){
             throw new IllegalArgumentException("수정할 권한이 없습니다");
         }
 

@@ -4,9 +4,9 @@ package com.artineer.artineersemina232.controller;
 import com.artineer.artineersemina232.auth.CurrentUser;
 import com.artineer.artineersemina232.dto.StudyDto;
 import com.artineer.artineersemina232.entity.Study;
-import com.artineer.artineersemina232.entity.UserEntity;
+import com.artineer.artineersemina232.entity.Account;
 import com.artineer.artineersemina232.repository.StudyRepository;
-import com.artineer.artineersemina232.repository.UserRepository;
+import com.artineer.artineersemina232.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.PostMapping;
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.UUID;
 
 
@@ -33,7 +32,7 @@ public class StudyController {
 
     private final StudyRepository studyRepository;
 
-    private final UserRepository userRepository;
+    private final AccountRepository accountRepository;
 
     @GetMapping("/study")
     public String showStudyPage(Model model) {
@@ -46,9 +45,9 @@ public class StudyController {
 
 
     @GetMapping("/study/new")
-    public String createStudyPage(Model model, @CurrentUser UserEntity userEntity) {
+    public String createStudyPage(Model model, @CurrentUser Account account) {
 
-        model.addAttribute(userEntity);
+        model.addAttribute(account);
         model.addAttribute(new StudyDto());
 
         return "/study/createStudy";
@@ -56,9 +55,9 @@ public class StudyController {
 
     @Transactional
     @PostMapping("/study/new")
-    public String createNewStudy(@Validated StudyDto studyDto, BindingResult result, @CurrentUser UserEntity userEntity) {
+    public String createNewStudy(@Validated StudyDto studyDto, BindingResult result, @CurrentUser Account account) {
 
-        if(result.hasErrors()){
+        if (result.hasErrors()) {
             return "/study/createStudy";
         }
 
@@ -69,7 +68,7 @@ public class StudyController {
                 .shortDescription(studyDto.getShortDescription())
                 .studyContent(studyDto.getContent())
                 .localDateTime(LocalDateTime.now())
-                .author(userEntity.getUsername())
+                .author(account.getUsername())
                 .path(uuid.toString())
                 .published(false)
                 .build();
@@ -77,8 +76,8 @@ public class StudyController {
 
         Study newStudy = studyRepository.save(study);
 
-        newStudy.addManager(userEntity);
-        newStudy.addMember(userEntity);
+        newStudy.addManager(account);
+        newStudy.addMember(account);
 
 
 //        return "redirect:/study/" + URLEncoder.encode(study.getPath(), StandardCharsets.UTF_8);
@@ -89,33 +88,33 @@ public class StudyController {
 
     @Transactional
     @GetMapping("/study/{path}")
-    public String showStudy(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+    public String showStudy(@PathVariable String path, Model model, @CurrentUser Account account) {
+
         Optional<Study> study = studyRepository.findByPath(path);
 
-        if(study.isEmpty()){
-            throw new IllegalArgumentException();
+        if (study.isEmpty()) {
+            throw new IllegalArgumentException("해당하는 스터디가 존재하지않습니다");
         }
 
-        model.addAttribute(userEntity);
         model.addAttribute("study", study.get());
-
+        model.addAttribute("member", study.get().getMembers().contains(account));
+        model.addAttribute("manager", study.get().getManagers().contains(account));
 
         return "/study/showStudy";
-
     }
 
     @Transactional
     @GetMapping("/study/{path}/members")
-    public String showStudyMembers(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+    public String showStudyMembers(@PathVariable String path, Model model, @CurrentUser Account account) {
         Optional<Study> study = studyRepository.findByPath(path);
 
-        if(study.isEmpty()){
+        if (study.isEmpty()) {
             throw new IllegalArgumentException();
         }
 
-
-        model.addAttribute(userEntity);
         model.addAttribute("study", study.get());
+        model.addAttribute("member", study.get().getMembers().contains(account));
+        model.addAttribute("manager", study.get().getManagers().contains(account));
 
         return "/study/studyMembers";
 
@@ -123,14 +122,14 @@ public class StudyController {
 
     @Transactional
     @GetMapping("/study/{path}/settings")
-    public String showStudySetting(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+    public String showStudySetting(@PathVariable String path, Model model, @CurrentUser Account account) {
         Optional<Study> study = studyRepository.findByPath(path);
 
-        if(study.isEmpty()){
+        if (study.isEmpty()) {
             throw new IllegalArgumentException();
         }
 
-        model.addAttribute(userEntity);
+        model.addAttribute(account);
         model.addAttribute("study", study.get());
 
         return "/study/studyMembers";
@@ -139,23 +138,51 @@ public class StudyController {
 
     @Transactional
     @GetMapping("/study/{path}/addMember")
-    public String studyAddMember(@PathVariable String path, Model model, @CurrentUser UserEntity userEntity) {
+    public String studyAddMember(@PathVariable String path, Model model, @CurrentUser Account account) {
         Optional<Study> findStudy = studyRepository.findByPath(path);
 
-        if(findStudy.isEmpty()){
+        if (findStudy.isEmpty()) {
             throw new IllegalArgumentException();
         }
 
         Study study = findStudy.get();
 
-        if (study.getMembers().contains(userRepository.findByUsername(userEntity.getUsername()))){
+        if (study.getMembers().contains(accountRepository.findByUsername(account.getUsername()))) {
             throw new IllegalArgumentException("이미 스터디에 가입된 사용자입니다");
         }
 
-        study.addMember(userEntity);
+        study.addMember(account);
 
         studyRepository.save(study);
 
-        return "redirect:/study";
+        return "redirect:/study/" + path;
+    }
+
+    @Transactional
+    @GetMapping("/study/{path}/published")
+    public String studyOpen(@PathVariable String path, Model model, @CurrentUser Account account) {
+        Optional<Study> findStudy = studyRepository.findByPath(path);
+
+        if (findStudy.isEmpty()) {
+            throw new IllegalArgumentException();
+        }
+
+
+        Study study = findStudy.get();
+
+        if(!study.getManagers().contains(accountRepository.findByUsername(account.getUsername()))){
+            throw new IllegalArgumentException("권한이 없는 사용자입니다");
+        }
+
+        if (!findStudy.get().isPublished()) {
+            study.open();
+            studyRepository.save(study);
+        } else {
+            study.close();
+            studyRepository.save(study);
+        }
+
+
+        return "redirect:/study/" + path;
     }
 }

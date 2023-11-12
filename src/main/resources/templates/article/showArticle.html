@@ -37,8 +37,8 @@
             </div>
         </div>
         <div class="article-btn-container">
-            <a class="btn-submit" th:if="${article.author == userEntity.username}" th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
-            <a class="btn-submit" th:if="${article.author == userEntity.username}" th:href="@{/articles/delete/{id}(id=${article.id})}">삭제</a>
+            <a class="btn-submit" th:if="${article.author == account.username}" th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
+            <a class="btn-submit" th:if="${article.author == account.username}" th:href="@{/articles/delete/{id}(id=${article.id})}">삭제</a>
         </div>
     </div>
 

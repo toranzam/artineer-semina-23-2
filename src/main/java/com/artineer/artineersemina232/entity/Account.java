@@ -1,6 +1,7 @@
 package com.artineer.artineersemina232.entity;
 
 import lombok.*;
+import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import javax.persistence.*;
 
@@ -10,7 +11,9 @@ import javax.persistence.*;
 @Setter
 @AllArgsConstructor
 @NoArgsConstructor
-public class UserEntity {
+@ToString
+@EqualsAndHashCode(of="id")
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -17,10 +17,10 @@ public class Study {
     private Long id;
 
     @ManyToMany
-    private Set<UserEntity> managers = new HashSet<>();
+    private Set<Account> managers = new HashSet<>();
 
     @ManyToMany
-    private Set<UserEntity> members = new HashSet<>();
+    private Set<Account> members = new HashSet<>();
 
     private String author;
 
@@ -38,11 +38,11 @@ public class Study {
 
     private boolean published;
 
-    public void addManager(UserEntity userEntity) {
+    public void addManager(Account userEntity) {
         this.managers.add(userEntity);
     }
 
-    public void addMember(UserEntity userEntity) {
+    public void addMember(Account userEntity) {
         this.members.add(userEntity);
     }
 
@@ -58,5 +58,11 @@ public class Study {
         this.published = published;
     }
 
+    public void open() {
+        this.published = true;
+    }
 
+    public void close() {
+        this.published = false;
+    }
 }

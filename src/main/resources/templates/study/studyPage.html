@@ -28,7 +28,8 @@
             </div>
         </div>
 
-        <a th:each=" study: ${studyList}" th:href="@{/study/{path}(path=${study.path})}">
+<!--        th:if="${study.published == true}"-->
+        <a  th:each=" study: ${studyList}" th:href="@{/study/{path}(path=${study.path})}">
             <div class="table-body">
                 <div class="table-body-inner">
                     <div class="row-top">

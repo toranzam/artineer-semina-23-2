@@ -401,20 +401,20 @@ body a {
 .article-section .article-section-inner .article .article-inner .article-header .article-header-right .article-info-first {
   display: flex;
   justify-content: end;
-  gap: 7px;
+  margin: 0 0 10px 0;
+  gap: 5px;
 }
-.article-section .article-section-inner .article .article-inner .article-header .article-header-right .article-info-first button {
-  align-items: center;
-  margin: 0 0 0 5px;
+.article-section .article-section-inner .article .article-inner .article-header .article-header-right .article-info-first .article-time {
+  padding: 0 5px;
 }
 .article-section .article-section-inner .article .article-inner .article-header .article-info-second {
   display: flex;
   justify-content: end;
-  margin: 10px 0 0 0;
-  gap: 5px;
+  gap: 7px;
 }
-.article-section .article-section-inner .article .article-inner .article-header .article-info-second .article-time {
-  padding: 0 5px;
+.article-section .article-section-inner .article .article-inner .article-header .article-info-second button {
+  align-items: center;
+  margin: 0 0 0 5px;
 }
 .article-section .article-section-inner .article .article-inner .article-navigation {
   display: flex;
