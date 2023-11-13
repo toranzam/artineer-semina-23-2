@@ -74,6 +74,12 @@ public class ArticleController {
         return "/article/showArticle";
     }
 
+    @GetMapping("/test")
+    public String test() {
+
+        return "/article/showArticleCopy";
+    }
+
     @GetMapping("/articles/delete/{id}")
     public String deleteArticle(@PathVariable Long id, @CurrentUser Account account) {
 
@@ -108,6 +114,8 @@ public class ArticleController {
 
         return "/article/editArticle";
     }
+
+
 
 
 }

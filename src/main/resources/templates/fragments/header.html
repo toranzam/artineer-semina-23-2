@@ -18,6 +18,16 @@
                     <li><a href="/articles">커뮤니티</a></li>
                     <li><a>예제</a></li>
                     <li><a>예제</a></li>
+                    <li sec:authorize="isAuthenticated()">
+                        <a>
+                            <span sec:authentication="name"></span>
+                        </a>
+<!--                        <ul>-->
+<!--                            <li><a>action1</a></li>-->
+<!--                            <li><a>로그인</a></li>-->
+<!--                            <li><a>로그아웃</a></li>-->
+<!--                        </ul>-->
+                    </li>
                     <li class="nav_link" sec:authorize="!isAuthenticated()"><a href="/loginPage">로그인</a></li>
                     <li class="nav_link" sec:authorize="isAuthenticated()"><a href="/logout">로그아웃</a></li>
                 </div>
