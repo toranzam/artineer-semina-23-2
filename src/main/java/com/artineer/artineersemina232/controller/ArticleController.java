@@ -9,6 +9,7 @@ import com.artineer.artineersemina232.repository.ArticleRepository;
 import com.artineer.artineersemina232.service.ArticleService;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -107,7 +108,7 @@ public class ArticleController {
         }
 
         if (!findArticle.get().getAuthor().equals(account.getUsername())){
-            throw new IllegalArgumentException("수정할 권한이 없습니다");
+            throw new AccessDeniedException("수정할 권한이 없습니다");
         }
 
         model.addAttribute("article", findArticle.get());

@@ -9,6 +9,7 @@ import com.artineer.artineersemina232.repository.StudyRepository;
 import com.artineer.artineersemina232.repository.AccountRepository;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.security.access.AccessDeniedException;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
@@ -133,7 +134,7 @@ public class StudyController {
         model.addAttribute("isMember", study.get().getMembers().contains(account));
         model.addAttribute("isManager", study.get().getManagers().contains(account));
 
-        return "/study/studyMembers";
+        return "/study/studySettings";
     }
 
     @Transactional
@@ -148,7 +149,7 @@ public class StudyController {
         Study study = findStudy.get();
 
         if (study.getMembers().contains(accountRepository.findByUsername(account.getUsername()))) {
-            throw new IllegalArgumentException("이미 스터디에 가입된 사용자입니다");
+            throw new AccessDeniedException("이미 스터디에 가입된 사용자입니다");
         }
 
         study.addMember(account);
@@ -171,7 +172,7 @@ public class StudyController {
         Study study = findStudy.get();
 
         if(!study.getManagers().contains(accountRepository.findByUsername(account.getUsername()))){
-            throw new IllegalArgumentException("권한이 없는 사용자입니다");
+            throw new AccessDeniedException("권한이 없는 사용자입니다");
         }
 
         if (!findStudy.get().isPublished()) {

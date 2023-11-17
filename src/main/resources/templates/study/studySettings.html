@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Article</title>
+    <!-- Css Import -->
+    <link rel="stylesheet" href="/css/style.css">
+
+    <!-- Quill Import -->
+    <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
+
+    <!-- Jquery Import -->
+    <script src="/node_modules/jquery/dist/jquery.min.js"></script>
+
+    <!-- Boot Strap Icons -->
+    <link rel="stylesheet" href="/node_modules/bootstrap-icons/font/bootstrap-icons.css">
+</head>
+<body>
+
+
+<div th:replace="~{fragments/header :: header}"></div>
+
+<div class="container2">
+    <section class="article2">
+        <div class="article-inner2">
+            <div class="article-inner-wrap">
+                <div class="article-header2">
+                    <div class="article-header-left2">
+                        <h1 class="study-h2" th:text="${study.title}"> 제목 </h1>
+                        <p th:text="${study.shortDescription}">짧은 설명</p>
+                    </div>
+                    <div class="article-header-right2">
+                        <div class="article-info-first2">
+                            <a th:text="${study.author}">닉네임</a>
+                            <div class="time2">
+                                <span>작성일</span>
+                                <time th:text="*{#temporals.format(study.localDateTime, 'yyyy-MM-dd HH:mm')}">yyyy-MM-dd</time>
+                            </div>
+                        </div>
+
+                        <div class="article-info-second2">
+                            <a th:if="!${isManager} and !${isMember} " th:href="@{/study/{path}/addMember(path=${study.path})}" class="btn-submit">스터디 가입</a>
+                            <a th:if="${study.published} and !${isManager}" class="btn-submit">공개</a>
+                            <a th:if="!${study.published} and !${isManager}" class="btn-secondary">비공개</a>
+                            <a th:href="@{/study/{path}/published(path=${study.path})}" th:if="${study.published} and ${isManager}" class="btn-submit">공개</a>
+                            <a th:href="@{/study/{path}/published(path=${study.path})}" th:if="!${study.published} and ${isManager}" class="btn-secondary">비공개</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="article-navigation2">
+                    <a th:href="@{/study/{path}(path=${study.path})}"><i class="bi bi-info-circle-fill"></i><span>소개</span></a>
+                    <a th:href="@{/study/{path}/members(path=${study.path})}"><i class="bi bi-person-circle"></i><span>구성원</span></a>
+                    <a th:href="@{/study/{path}/settings(path=${study.path})}"><i class="bi bi-gear-fill"></i><span>스터디 설정</span></a>
+                </div>
+
+                <hr>
+
+                <div class="article-content2">
+                    <div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</div>
+
+
+<script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script>
+
+
+    var quill = new Quill('.form-content', {
+        theme: 'bubble',
+        placeholder: "내용을 입력해주세요",
+        readOnly: true
+
+    });
+    quill.on('text-change', function () {
+        document.getElementById("quill_html").value = quill.root.innerHTML
+    })
+</script>
+
+
+</body>
+</html>
