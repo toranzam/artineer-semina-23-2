@@ -22,58 +22,59 @@
 
 <div th:replace="~{fragments/header :: header}"></div>
 
-<section class="article-section">
-    <div class="article-section-inner">
-        <div class="article">
-            <div class="article-inner">
-                <div class="article-header">
-                    <div class="article-header-left">
-                        <div class="article-title">
-                            <h1 class="study-h1" th:text="${study.title}"></h1>
-                            <p th:text="${study.shortDescription}"></p>
-                        </div>
+<div class="container2">
+    <section class="article2">
+        <div class="article-inner2">
+            <div class="article-inner-wrap">
+                <div class="article-header2">
+                    <div class="article-header-left2">
+                        <h1 class="study-h2" th:text="${study.title}"> 제목 </h1>
+                        <p th:text="${study.shortDescription}">짧은 설명</p>
                     </div>
-                    <div class="article-header-right">
-                        <div class="article-info-first">
+                    <div class="article-header-right2">
+                        <div class="article-info-first2">
                             <a th:text="${study.author}">닉네임</a>
-                            <div class="article-time">
+                            <div class="time2">
                                 <span>작성일</span>
-                                <time th:text="*{#temporals.format(study.localDateTime, 'yyyy-MM-dd HH:mm')}">yyyy-MM-dd
+                                <time th:text="*{#temporals.format(study.localDateTime, 'yyyy-MM-dd HH:mm')}">
+                                    yyyy-MM-dd
                                 </time>
                             </div>
-
                         </div>
-                        <div class="article-info-second">
-                            <a th:if="!${manager} and !${member} " th:href="@{/study/{path}/addMember(path=${study.path})}" class="btn-submit">스터디 가입</a>
-                            <a th:if="${study.published} and !${manager}" class="btn-submit">공개</a>
-                            <a th:if="!${study.published} and !${manager}" class="btn-secondary">비공개</a>
-                            <a th:href="@{/study/{path}/published(path=${study.path})}" th:if="${study.published} and ${manager}" class="btn-submit">공개</a>
-                            <a th:href="@{/study/{path}/published(path=${study.path})}" th:if="!${study.published} and ${manager}" class="btn-secondary">비공개</a>
+
+                        <div class="article-info-second2">
+                            <a th:if="!${isManager} and !${isMember} "
+                               th:href="@{/study/{path}/addMember(path=${study.path})}" class="btn-submit">스터디 가입</a>
+                            <a th:if="${study.published} and !${isManager}" class="btn-submit">공개</a>
+                            <a th:if="!${study.published} and !${isManager}" class="btn-secondary">비공개</a>
+                            <a th:href="@{/study/{path}/published(path=${study.path})}"
+                               th:if="${study.published} and ${isManager}" class="btn-submit">공개</a>
+                            <a th:href="@{/study/{path}/published(path=${study.path})}"
+                               th:if="!${study.published} and ${isManager}" class="btn-secondary">비공개</a>
                         </div>
                     </div>
                 </div>
 
-                <div class="article-navigation">
-                    <a th:href="@{/study/{path}(path=${study.path})}"><i class="bi bi-info-circle-fill"></i><span>소개</span></a>
+                <div class="article-navigation2">
+                    <a th:href="@{/study/{path}(path=${study.path})}"><i
+                            class="bi bi-info-circle-fill"></i><span>소개</span></a>
                     <a th:href="@{/study/{path}/members(path=${study.path})}"><i class="bi bi-person-circle"></i><span>구성원</span></a>
                     <a th:href="@{/study/{path}/settings(path=${study.path})}"><i class="bi bi-gear-fill"></i><span>스터디 설정</span></a>
                 </div>
 
-                <div class="article-content">
+                <hr>
+
+                <div class="article-content2">
                     <div class="article-member" th:each="member : ${study.members}">
-                        <p th:text="${member.username}"></p>
+                        <p th:text="${member.username}">memberName</p>
                     </div>
                 </div>
             </div>
         </div>
-        <div class="article-btn-container">
-            <a class="btn-submit" th:href="@{/study/edit/{id}(id=${study.id})}" type="submit">수정</a>
-            <a class="btn-submit" th:href="@{/study/delete/{id}(id=${study.id})}">삭제</a>
-        </div>
-    </div>
 
 
-</section>
+    </section>
+</div>
 
 
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>

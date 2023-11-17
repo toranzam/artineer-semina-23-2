@@ -97,8 +97,8 @@ public class StudyController {
         }
 
         model.addAttribute("study", study.get());
-        model.addAttribute("member", study.get().getMembers().contains(account));
-        model.addAttribute("manager", study.get().getManagers().contains(account));
+        model.addAttribute("isMember", study.get().getMembers().contains(account));
+        model.addAttribute("isManager", study.get().getManagers().contains(account));
 
         return "/study/showStudy";
     }
@@ -113,8 +113,8 @@ public class StudyController {
         }
 
         model.addAttribute("study", study.get());
-        model.addAttribute("member", study.get().getMembers().contains(account));
-        model.addAttribute("manager", study.get().getManagers().contains(account));
+        model.addAttribute("isMember", study.get().getMembers().contains(account));
+        model.addAttribute("isManager", study.get().getManagers().contains(account));
 
         return "/study/studyMembers";
 
@@ -130,8 +130,8 @@ public class StudyController {
         }
 
         model.addAttribute("study", study.get());
-        model.addAttribute("member", study.get().getMembers().contains(account));
-        model.addAttribute("manager", study.get().getManagers().contains(account));
+        model.addAttribute("isMember", study.get().getMembers().contains(account));
+        model.addAttribute("isManager", study.get().getManagers().contains(account));
 
         return "/study/studyMembers";
     }

@@ -591,7 +591,7 @@ body {
   justify-content: center;
 
   .article-inner2 {
-    width: 900px;
+    width: 1000px;
 
     .article-inner-wrap {
       border: 1px solid rgba(164, 164, 164, 0.3);
@@ -609,23 +609,61 @@ body {
             margin: 0 30px;
             font-size: 32px;
           }
+
+          .study-h2{
+            margin: 0 30px;
+            font-size: 32px;
+            color: #1e71ff;
+          }
+
+          p{
+            margin: 0 30px;
+            font-size: 18px;
+          }
         }
 
         .article-header-right2 {
           display: flex;
           gap: 10px;
           margin: 0 30px;
+          flex-direction: column;
 
-          a {
-          }
+          .article-info-first2{
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+            margin: 0 0 5px 0;
 
-          .time2 {
-            span {
+            a{}
+            .time2 {
+              span {}
+              time {}
             }
 
-            time {
-            }
           }
+
+          .article-info-second2{
+            display: flex;
+            justify-content: end;
+            gap: 10px;
+
+          }
+
+
+
+
+        }
+      }
+
+      .article-navigation2{
+        display: flex;
+        padding: 10px 30px;
+        gap: 10px;
+
+        a{
+          display: flex;
+          gap: 3px;
+          color: #1e71ff;
         }
       }
 

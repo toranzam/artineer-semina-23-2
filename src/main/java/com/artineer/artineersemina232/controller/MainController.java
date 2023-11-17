@@ -11,5 +11,14 @@ public class MainController {
         return "index";
     }
 
+    @GetMapping("/todolist")
+    public String showTodoList(){
+        return "/todoList/index";
+    }
+
+    @GetMapping("calendar")
+    public String showCalender() {
+        return "/calendar/index";
+    }
 
 }

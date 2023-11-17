@@ -77,7 +77,7 @@ public class ArticleController {
     @GetMapping("/test")
     public String test() {
 
-        return "/article/showArticleCopy";
+        return "showStudyTest";
     }
 
     @GetMapping("/articles/delete/{id}")

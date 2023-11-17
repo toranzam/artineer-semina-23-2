@@ -1,0 +1,113 @@
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/*위에서 아래 방향으로 색 그라데이션*/
+body{
+  height: 100vh;
+  width: 100%;
+  background: linear-gradient(to right, #6acff1, #067dde);
+}
+
+.wrapper{
+  margin: 120px auto;
+  max-width: 700px;
+  width: 100%;
+  background: rgb(174, 221, 249);
+  padding: 25px;
+  border-radius: 6px;
+}
+
+.wrapper header{
+  margin-bottom: 30px;
+  font-size: 50px;
+  font-weight: 700;
+  letter-spacing: 15px;
+  text-align: center;
+  font-family: 'Koulen', cursive;
+}
+
+/*.wrapper안에 있는 것을 부를때(태그 설정 방법은 무궁무진)*/
+.wrapper .inputField{
+  display: flex;  
+  margin: 5px auto 20px ; 
+  height: 45px;
+  width: 700px;
+  font-family:'Hi Melody', cursive;
+}
+
+/* +버튼 굵기지정  */
+.xi-plus{
+  font-weight: bold;
+  color: rgb(255, 255, 255);
+}
+
+/*클릭 시 테두리 안보이게 지정*/
+.inputField input{
+  color: black;
+  padding-left: 15px;
+  width: 600px;
+  height: 100%;
+  border: none;
+  font-size: 15px;
+  border-radius: 5px;
+  outline: none;
+}
+
+/*+ 버튼에 마이스를 올리면 손 모양으로 바뀌도록 지정*/
+.inputField button{
+  width: 50px;
+  height: 100%;
+  border: none;
+  border-radius: 3px;
+  background: rgb(6, 6, 6);
+  cursor: pointer;
+}
+
+.wrapper .Todolist{
+  display: flex;
+}
+
+.Todolist li{
+  width: 650px;
+  list-style: none;
+  line-height: 40px;
+  position: relative;
+  margin-bottom: 9px;
+  text-indent: 15px;
+  background: rgb(241, 242, 241);
+  border-radius: 3px;
+  font-weight: 400;
+  cursor: pointer;
+}
+
+/*모두 삭제 버튼을 오른쪽에 위치*/
+.wrapper .footer{
+  font-weight: 600;
+  text-indent: 15px;
+  display: flex;
+  width: 100%;
+  margin-top: 30px;
+  justify-content: right;/*flex때문에 써준다*/
+}
+
+.footer button{
+  color: rgb(255, 255, 255);
+  cursor: pointer;
+  font-size: 17px;
+  font-weight: 900;
+  padding: 6px 10px;
+  width: 100px;
+  height: 40px;
+  border: none;
+  border-radius: 9px;
+  background: rgb(6, 6, 6);
+}
+
+/*이벤트를 사용해 마우스를 버튼에 올렸을 때 배경색과 글씨 색이 변하도록 지정*/
+.footer button:hover{
+  color : rgb(6, 6, 6);
+  background-color: white;
+}

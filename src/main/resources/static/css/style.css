@@ -455,7 +455,7 @@ body a {
   justify-content: center;
 }
 .article2 .article-inner2 {
-  width: 900px;
+  width: 1000px;
 }
 .article2 .article-inner2 .article-inner-wrap {
   border: 1px solid rgba(164, 164, 164, 0.3);
@@ -472,10 +472,41 @@ body a {
   margin: 0 30px;
   font-size: 32px;
 }
+.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-left2 .study-h2 {
+  margin: 0 30px;
+  font-size: 32px;
+  color: #1e71ff;
+}
+.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-left2 p {
+  margin: 0 30px;
+  font-size: 18px;
+}
 .article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-right2 {
   display: flex;
   gap: 10px;
   margin: 0 30px;
+  flex-direction: column;
+}
+.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-right2 .article-info-first2 {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+  margin: 0 0 5px 0;
+}
+.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-right2 .article-info-second2 {
+  display: flex;
+  justify-content: end;
+  gap: 10px;
+}
+.article2 .article-inner2 .article-inner-wrap .article-navigation2 {
+  display: flex;
+  padding: 10px 30px;
+  gap: 10px;
+}
+.article2 .article-inner2 .article-inner-wrap .article-navigation2 a {
+  display: flex;
+  gap: 3px;
+  color: #1e71ff;
 }
 .article2 .article-inner2 .article-inner-wrap hr {
   width: 95%;
