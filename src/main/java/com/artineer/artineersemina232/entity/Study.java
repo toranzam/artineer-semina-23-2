@@ -8,6 +8,7 @@ import java.util.*;
 
 @Entity
 @Getter
+@Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class Study {

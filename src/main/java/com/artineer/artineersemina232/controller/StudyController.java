@@ -104,6 +104,7 @@ public class StudyController {
         return "/study/showStudy";
     }
 
+
     @Transactional
     @GetMapping("/study/{path}/members")
     public String showStudyMembers(@PathVariable String path, Model model, @CurrentUser Account account) {
@@ -121,21 +122,6 @@ public class StudyController {
 
     }
 
-    @Transactional
-    @GetMapping("/study/{path}/settings")
-    public String showStudySetting(@PathVariable String path, Model model, @CurrentUser Account account) {
-        Optional<Study> study = studyRepository.findByPath(path);
-
-        if (study.isEmpty()) {
-            throw new IllegalArgumentException();
-        }
-
-        model.addAttribute("study", study.get());
-        model.addAttribute("isMember", study.get().getMembers().contains(account));
-        model.addAttribute("isManager", study.get().getManagers().contains(account));
-
-        return "/study/studySettings";
-    }
 
     @Transactional
     @GetMapping("/study/{path}/addMember")
@@ -171,7 +157,7 @@ public class StudyController {
 
         Study study = findStudy.get();
 
-        if(!study.getManagers().contains(accountRepository.findByUsername(account.getUsername()))){
+        if (!study.getManagers().contains(accountRepository.findByUsername(account.getUsername()))) {
             throw new AccessDeniedException("권한이 없는 사용자입니다");
         }
 

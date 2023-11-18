@@ -21,11 +21,10 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <section class="form-section-wide">
-    <form class="form-article" action="/articles/new" th:object="${article}" th:action="@{/articles/new}" method="post">
+    <form class="form-article" action="/articles/new" th:object="${article}" th:action="@{/articles/update/{id}(id=${article.id})}" method="post">
         <div class="form-article-inner">
             <div class="form-outline">
                 <p>제목</p>
-
                 <input type="text" name="title" th:field="*{title}">
             </div>
             <div class="form-outline">

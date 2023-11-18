@@ -52,7 +52,6 @@ public class ArticleController {
     public String createNewArticle(@ModelAttribute ArticleDto articleDto, @CurrentUser Account account) {
 
 
-
         Article article = articleService.toEntity(articleDto, account);
 
         articleRepository.save(article);
@@ -90,7 +89,7 @@ public class ArticleController {
             throw new IllegalArgumentException("삭제할 게시물이 존재하지않습니다");
         }
 
-        if (!findArticle.get().getAuthor().equals(account.getUsername())){
+        if (!findArticle.get().getAuthor().equals(account.getUsername())) {
             throw new RuntimeException("삭제할 권한이 없습니다");
         }
 
@@ -99,15 +98,15 @@ public class ArticleController {
         return "redirect:/articles";
     }
 
-    @GetMapping("articles/edit/{id}")
+    @GetMapping("/articles/edit/{id}")
     public String showEditForm(@PathVariable Long id, Model model, @CurrentUser Account account) {
         Optional<Article> findArticle = articleRepository.findById(id);
 
-        if(findArticle.isEmpty()){
+        if (findArticle.isEmpty()) {
             throw new IllegalArgumentException("수정할 게시물이 존재하지 않습니다");
         }
 
-        if (!findArticle.get().getAuthor().equals(account.getUsername())){
+        if (!findArticle.get().getAuthor().equals(account.getUsername())) {
             throw new AccessDeniedException("수정할 권한이 없습니다");
         }
 
@@ -116,7 +115,28 @@ public class ArticleController {
         return "/article/editArticle";
     }
 
+    @PostMapping("/articles/update/{id}")
+    public String updateArticle(@PathVariable Long id, ArticleDto articleDto) {
+        Optional<Article> byId = articleRepository.findById(id);
+        if (byId.isEmpty()) {
+            throw new IllegalArgumentException(byId + "업데이트 할 게시물이 존재하지 않습니다");
+        }
 
+        Article article = byId.get();
+
+        Article updateArticle = Article.builder()
+                .id(article.getId())
+                .title(articleDto.getTitle())
+                .content(articleDto.getContent())
+                .author(article.getAuthor())
+                .localDateTime(article.getLocalDateTime())
+                .build();
+
+        articleRepository.save(updateArticle);
+
+
+        return "redirect:/articles/" + updateArticle.getId();
+    }
 
 
 }
