@@ -29,7 +29,7 @@
             </div>
             <div class="form-outline">
                 <p>내용</p>
-                <div class="form-content"></div>
+                <div class="form-content" th:utext="*{content}"></div>
                 <input type="hidden" id="quill_html" name="content" th:field="*{content}">
             </div>
             <div class="form-submit">
