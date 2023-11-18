@@ -23,9 +23,9 @@
                             <span sec:authentication="name"></span>
                         </a>
                         <div class="dropdown">
-                            <a href="#none">프로필</a>
-                            <a href="#none">로그아웃</a>
-                            <a href="#none">로그아웃</a>
+                            <a href="#none" th:href="@{/profile/{username}(username = ${#authentication.name})}">프로필</a>
+                            <a href="#none">내 스터디</a>
+                            <a href="/logout">로그아웃</a>
 
                         </div>
 

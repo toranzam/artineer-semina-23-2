@@ -90,7 +90,7 @@ body {
               color: white;
             }
 
-            .dropdown{
+            .dropdown {
               position: absolute;
               width: 130px;
               margin: 30px 0 0 0;
@@ -98,26 +98,28 @@ body {
               transition: 0.5s;
               visibility: hidden;
 
-              a{
+              a {
                 display: block;
                 text-align: center;
                 padding: 8px;
                 background: #fff;
                 color: #000;
-                border:  solid rgba(164, 164, 164, 0.3);
+                border: solid rgba(164, 164, 164, 0.3);
                 border-width: 1px 1px 0 1px;
 
 
-                &:first-child{
+                &:first-child {
                   border-radius: 5px 5px 0 0;
                 }
-                &:last-child{
+
+                &:last-child {
                   border-radius: 0 0 5px 5px;
                   border-width: 1px 1px 1px 1px;
                 }
               }
             }
-            &:hover .dropdown{
+
+            &:hover .dropdown {
               opacity: 1;
               visibility: visible;
             }
@@ -347,6 +349,7 @@ body {
   }
 }
 
+
 /* --- From Section ---*/
 
 .form-section {
@@ -443,35 +446,40 @@ body {
 
 /* Create Article Page */
 .form-section-wide {
-  margin: 40px 0 0 0;
   display: flex;
   justify-content: center;
 
   .form-article {
-    //width: 1160px;
-    width: 100%;
+    width: 1160px;
     display: flex;
+    padding: 0 30px;
+    margin: 40px 0 0 0;
     justify-content: center;
-    align-items: center;
 
     .form-article-inner {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      width: 70%;
+      padding: 0 30px;
       //width: 1160px;
 
       .form-outline {
-        .form-content {
-          height: 400px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+
+        p {
+          margin: 20px 0 10px 0;
         }
 
         input {
-          width: 97%;
-          //width: 1160px;
           padding: 9px 10px 9px 10px;
           align-items: center;
           margin: 0;
+        }
+
+        .form-content {
+          height: 400px;
         }
 
 
@@ -678,7 +686,6 @@ body {
               time {
               }
             }
-
           }
 
           .article-info-second2 {
@@ -800,29 +807,31 @@ body {
       display: flex;
       justify-content: center;
       flex-direction: column;
-      padding: 15px 10px;
+      padding: 10px 10px;
 
-      input{
+      input {
         padding: 6px 5px;
       }
 
 
-      .form-label-wrap{
+      .form-label-wrap {
         display: flex;
         justify-content: start;
         padding: 5px 10px;
-        lable{
+
+        lable {
           font-size: 18px;
 
         }
       }
 
-      .study-edit-form{
+      .study-edit-form {
+        height: 500px;
       }
 
     }
 
-    .form-btn{
+    .form-btn {
       padding: 6px 10px;
       margin: 10px 10px;
       background: #1e71ff;

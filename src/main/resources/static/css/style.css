@@ -354,30 +354,37 @@ body a {
 
 /* Create Article Page */
 .form-section-wide {
-  margin: 40px 0 0 0;
   display: flex;
   justify-content: center;
 }
 .form-section-wide .form-article {
-  width: 100%;
+  width: 1160px;
   display: flex;
+  padding: 0 30px;
+  margin: 40px 0 0 0;
   justify-content: center;
-  align-items: center;
 }
 .form-section-wide .form-article .form-article-inner {
   display: flex;
   flex-direction: column;
   justify-content: center;
-  width: 70%;
+  padding: 0 30px;
 }
-.form-section-wide .form-article .form-article-inner .form-outline .form-content {
-  height: 400px;
+.form-section-wide .form-article .form-article-inner .form-outline {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+}
+.form-section-wide .form-article .form-article-inner .form-outline p {
+  margin: 20px 0 10px 0;
 }
 .form-section-wide .form-article .form-article-inner .form-outline input {
-  width: 97%;
   padding: 9px 10px 9px 10px;
   align-items: center;
   margin: 0;
+}
+.form-section-wide .form-article .form-article-inner .form-outline .form-content {
+  height: 400px;
 }
 .form-section-wide .form-article .form-article-inner .form-submit {
   margin: 15px 0;
@@ -611,7 +618,7 @@ body a {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  padding: 15px 10px;
+  padding: 10px 10px;
 }
 .form-container form .form-outline input {
   padding: 6px 5px;
@@ -623,6 +630,9 @@ body a {
 }
 .form-container form .form-outline .form-label-wrap lable {
   font-size: 18px;
+}
+.form-container form .form-outline .study-edit-form {
+  height: 500px;
 }
 .form-container form .form-btn {
   padding: 6px 10px;
