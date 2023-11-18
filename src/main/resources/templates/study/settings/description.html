@@ -83,6 +83,13 @@
                                             <input name="title" th:field="${studyDto.title}">
                                         </div>
 
+                                        <div class="form-outline">
+                                            <div class="form-label-wrap">
+                                                <label>스터디 짧은 소개</label>
+                                            </div>
+                                            <input name="title" th:field="${studyDto.shortDescription}">
+                                        </div>
+
 
                                         <div class="form-outline">
                                             <div class="form-label-wrap">
@@ -92,7 +99,7 @@
                                             <input type="hidden" id="quill_html" name="content" th:field="${studyDto.content}"  >
                                         </div>
 
-                                        <button type="submit">제출</button>
+                                        <button class="form-btn" type="submit">제출</button>
 
 
                                     </form>

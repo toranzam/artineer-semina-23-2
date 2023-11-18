@@ -67,13 +67,13 @@
                 <div class="article-content2">
                     <div class="article-content-inner">
                         <div class="article-content-left">
-                            <a th:href="@{/study/{path}/settings/description(path=${study.path})}">소개</a>
+                            <a th:if="${isManager}" th:href="@{/study/{path}/settings/description(path=${study.path})}">소개</a>
                             <a>기능</a>
                             <a>스터디</a>
                         </div>
                         <div class="article-content-right">
                             <div class="article-content-wrap">
-                                dafdsafsd
+                                설정페이지입니다
 
                             </div>
                         </div>

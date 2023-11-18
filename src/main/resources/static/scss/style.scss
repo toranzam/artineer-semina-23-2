@@ -82,11 +82,44 @@ body {
             font-size: 14px;
             font-weight: bold;
             color: white;
-            font-family: Arial;
+            display: flex;
+            justify-content: end;
 
             a {
               text-decoration: none;
               color: white;
+            }
+
+            .dropdown{
+              position: absolute;
+              width: 130px;
+              margin: 30px 0 0 0;
+              opacity: 0;
+              transition: 0.5s;
+              visibility: hidden;
+
+              a{
+                display: block;
+                text-align: center;
+                padding: 8px;
+                background: #fff;
+                color: #000;
+                border:  solid rgba(164, 164, 164, 0.3);
+                border-width: 1px 1px 0 1px;
+
+
+                &:first-child{
+                  border-radius: 5px 5px 0 0;
+                }
+                &:last-child{
+                  border-radius: 0 0 5px 5px;
+                  border-width: 1px 1px 1px 1px;
+                }
+              }
+            }
+            &:hover .dropdown{
+              opacity: 1;
+              visibility: visible;
             }
           }
         }
@@ -789,7 +822,12 @@ body {
 
     }
 
-    input {
+    .form-btn{
+      padding: 6px 10px;
+      margin: 10px 10px;
+      background: #1e71ff;
+      color: #EEE;
+      border: none;
 
     }
   }

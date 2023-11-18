@@ -22,14 +22,16 @@
                         <a>
                             <span sec:authentication="name"></span>
                         </a>
-<!--                        <ul>-->
-<!--                            <li><a>action1</a></li>-->
-<!--                            <li><a>로그인</a></li>-->
-<!--                            <li><a>로그아웃</a></li>-->
-<!--                        </ul>-->
+                        <div class="dropdown">
+                            <a href="#none">프로필</a>
+                            <a href="#none">로그아웃</a>
+                            <a href="#none">로그아웃</a>
+
+                        </div>
+
                     </li>
                     <li class="nav_link" sec:authorize="!isAuthenticated()"><a href="/loginPage">로그인</a></li>
-                    <li class="nav_link" sec:authorize="isAuthenticated()"><a href="/logout">로그아웃</a></li>
+<!--                    <li class="nav_link" sec:authorize="isAuthenticated()"><a href="/logout">로그아웃</a></li>-->
                 </div>
             </div>
         </div>
