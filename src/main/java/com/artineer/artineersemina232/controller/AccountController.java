@@ -58,10 +58,8 @@ public class AccountController {
             throw new IllegalArgumentException(username + "에 해당하는 사용자가 존재하지않습니다");
         }
 
-
         model.addAttribute("account", byUsername);
         model.addAttribute("isOwner", account.equals(byUsername));
-
 
         return "account/profile";
     }

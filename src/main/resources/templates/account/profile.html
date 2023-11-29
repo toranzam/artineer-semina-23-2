@@ -19,11 +19,47 @@
 </head>
 <body>
 
-
 <div th:replace="~{fragments/header :: header}"></div>
 
+<div class="container">
+    <section class="article">
+        <div class="article-inner">
+            <div class="article-inner-wrap">
+                <div class="article-content">
+                    <div class="article-content-inner">
+                        <div class="article-content-left">
+                            <svg class="profile-jdenticon" th:data-jdenticon-value="${account.username}">
+                            </svg>
+
+                            <div class="article-menu">
+                                <a style="background: #1e71ff; color:#EEE;;">소개</a>
+                                <a>스터디</a>
+                            </div>
 
 
+                        </div>
+                        <div class="article-content-right">
+                            <div class="article-content-wrap">
+                                <div class="profile-info">
+                                    <h2 th:text="${account.username}">Username</h2>
+                                    <p th:if="${#strings.isEmpty(account.bio)}">소개글이 비어있어요 <br><span>나만의 한줄소개를 작성해보세요.</span></p>
+                                    <p th:if="${!#strings.isEmpty(account.bio) && isOwner}"></p>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+    </section>
+</div>
+
+
+<script src="/node_modules/jdenticon/dist/jdenticon.min.js"></script>
 
 </body>
 </html>

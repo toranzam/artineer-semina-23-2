@@ -1,6 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 
 <body>
 
@@ -16,10 +15,10 @@
                 <div class="nav-link-box">
                     <li><a href="/study">스터디</a></li>
                     <li><a href="/articles">커뮤니티</a></li>
-                    <li><a>예제</a></li>
-                    <li><a>예제</a></li>
                     <li sec:authorize="isAuthenticated()">
-                        <a>
+                        <a class="user-profile">
+                            <svg th:data-jdenticon-value="${#authentication.name}" width="25" height="25">
+                            </svg>
                             <span sec:authentication="name"></span>
                         </a>
                         <div class="dropdown">
@@ -38,6 +37,10 @@
     </div>
 </header>
 
+
+
+
+<script src="/node_modules/jdenticon/dist/jdenticon.min.js"></script>
 
 </body>
 </html>

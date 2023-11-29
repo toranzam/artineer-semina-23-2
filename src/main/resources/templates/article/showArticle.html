@@ -20,17 +20,17 @@
 <div th:replace="~{fragments/header :: header}"></div>
 
 <div class="container2">
-    <section class="article2">
-        <div class="article-inner2">
+    <section class="article">
+        <div class="article-inner">
             <div class="article-inner-wrap">
-                <div class="article-header2">
-                    <div class="article-header-left2">
+                <div class="article-header">
+                    <div class="article-header-left">
                         <h1 class="article-h12" th:text="${article.getTitle}"> 제목 </h1>
                     </div>
-                    <div class="article-header-right2">
-                        <div class="article-info-first2">
+                    <div class="article-header-right">
+                        <div class="article-info-first">
                             <a th:text="${article.author}">닉네임</a>
-                            <div class="time2">
+                            <div class="time">
                                 <span>작성일</span>
                                 <time th:text="*{#temporals.format(article.localDateTime, 'yyyy-MM-dd HH:mm')}">yyyy-MM-dd</time>
                             </div>
@@ -41,12 +41,12 @@
 
                 <hr>
 
-                <div class="article-content2">
+                <div class="article-content">
                     <p th:utext="${article.getContent()}"> 내용 </p>
                 </div>
             </div>
 
-            <div class="article-footer2">
+            <div class="article-footer">
                 <div class="article-btn">
                     <a class="btn-submit" th:if="${article.author == account.username}"
                        th:href="@{/articles/edit/{id}(id=${article.id})}" type="submit">수정</a>
@@ -63,6 +63,8 @@
 
 
 <script src="https://cdn.quilljs.com/1.3.6/quill.js"></script>
+<script src="/node_modules/jdenticon/dist/jdenticon.min.js"></script>
+
 <script>
 
 

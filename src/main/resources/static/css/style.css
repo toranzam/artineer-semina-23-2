@@ -66,7 +66,7 @@ body a {
 }
 .index-header .nav-container .nav-container-inner .nav-grid .nav-link-box {
   display: flex;
-  align-items: flex-start;
+  align-items: center;
 }
 .index-header .nav-container .nav-container-inner .nav-grid .nav-link-box li {
   list-style: none;
@@ -77,9 +77,19 @@ body a {
   display: flex;
   justify-content: end;
 }
+.index-header .nav-container .nav-container-inner .nav-grid .nav-link-box li .user-profile {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+.index-header .nav-container .nav-container-inner .nav-grid .nav-link-box li .user-profile svg {
+  background: white;
+  border-radius: 3px;
+}
 .index-header .nav-container .nav-container-inner .nav-grid .nav-link-box li a {
   text-decoration: none;
   color: white;
+  align-items: center;
 }
 .index-header .nav-container .nav-container-inner .nav-grid .nav-link-box li .dropdown {
   position: absolute;
@@ -113,7 +123,7 @@ body a {
 /* index section */
 .index-section {
   background-color: #1e71ff;
-  padding: 15vh 60px 30vh;
+  padding: 15vh 60px 60vh;
 }
 .index-section .grid {
   max-width: 1160px;
@@ -403,199 +413,135 @@ body a {
 }
 
 /* Show Article Page*/
-.article-section {
+.article {
   display: flex;
   justify-content: center;
 }
-.article-section .article-section-inner {
-  width: 100%;
-  max-width: 1000px;
-  margin: 50px 0 0 0;
-}
-.article-section .article-section-inner .article {
-  border: 1px solid rgba(164, 164, 164, 0.3);
-  border-radius: 15px;
-  padding: 30px 30px;
-}
-.article-section .article-section-inner .article .article-inner .article-header {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 0 10px 0;
-  margin: 0 0 10px 0;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title .article-h1 {
-  font-size: 32px;
-  margin: 0;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title .study-h1 {
-  font-size: 32px;
-  margin: 0;
-  color: #1e71ff;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-header-left .article-title p {
-  font-size: 18px;
-  margin: 0;
-  color: #5a5a64;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-header-right {
-  display: flex;
-  flex-direction: column;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-header-right .article-info-first {
-  display: flex;
-  justify-content: end;
-  margin: 0 0 10px 0;
-  gap: 5px;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-header-right .article-info-first .article-time {
-  padding: 0 5px;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-info-second {
-  display: flex;
-  justify-content: end;
-  gap: 7px;
-}
-.article-section .article-section-inner .article .article-inner .article-header .article-info-second button {
-  align-items: center;
-  margin: 0 0 0 5px;
-}
-.article-section .article-section-inner .article .article-inner .article-navigation {
-  display: flex;
-  gap: 15px;
-  border-bottom: 1px solid rgba(164, 164, 164, 0.3);
-  padding: 0 0 20px 2px;
-  margin: 0 0 20px 0;
-}
-.article-section .article-section-inner .article .article-inner .article-navigation a {
-  color: #1e71ff;
-  display: flex;
-  gap: 3px;
-}
-.article-section .article-section-inner .article .article-inner .article-content .article-member {
-  padding: 10px 20px;
-}
-.article-section .article-section-inner .article .article-inner .article-content p {
-  font-size: 15px;
-  margin: 0;
-}
-.article-section .article-section-inner .article-btn-container {
-  display: flex;
-  justify-content: end;
-  gap: 10px;
-  margin: 15px 10px;
-}
-
-/*test*/
-.article2 {
-  display: flex;
-  justify-content: center;
-}
-.article2 .article-inner2 {
+.article .article-inner {
   width: 1000px;
 }
-.article2 .article-inner2 .article-inner-wrap {
+.article .article-inner .article-inner-wrap {
   border: 1px solid rgba(164, 164, 164, 0.3);
   border-radius: 15px;
   margin: 50px 0 0 0;
   padding: 20px 30px 20px 30px;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 {
+.article .article-inner .article-inner-wrap .article-header {
   width: 100%;
   margin: 30px 0 0 0;
   display: flex;
   justify-content: space-between;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-left2 h1 {
+.article .article-inner .article-inner-wrap .article-header .article-header-left h1 {
   font-size: 32px;
   margin: 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-left2 .study-h2 {
+.article .article-inner .article-inner-wrap .article-header .article-header-left .study-h1 {
   font-size: 32px;
   color: #1e71ff;
   margin: 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-left2 p {
+.article .article-inner .article-inner-wrap .article-header .article-header-left p {
   font-size: 18px;
   margin: 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-right2 {
+.article .article-inner .article-inner-wrap .article-header .article-header-right {
   display: flex;
   gap: 10px;
   margin: 0 30px;
   flex-direction: column;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-right2 .article-info-first2 {
+.article .article-inner .article-inner-wrap .article-header .article-header-right .article-info-first {
   display: flex;
   justify-content: end;
   gap: 10px;
   margin: 0 0 5px 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-header2 .article-header-right2 .article-info-second2 {
+.article .article-inner .article-inner-wrap .article-header .article-header-right .article-info-second {
   display: flex;
   justify-content: end;
   gap: 10px;
 }
-.article2 .article-inner2 .article-inner-wrap .article-navigation2 {
+.article .article-inner .article-inner-wrap .article-navigation {
   display: flex;
   gap: 10px;
   margin: 20px 0 0 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-navigation2 a {
+.article .article-inner .article-inner-wrap .article-navigation a {
   display: flex;
   gap: 3px;
   color: #1e71ff;
 }
-.article2 .article-inner2 .article-inner-wrap hr {
+.article .article-inner .article-inner-wrap hr {
   width: 100%;
   border: 1px solid rgba(164, 164, 164, 0.3);
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 {
+.article .article-inner .article-inner-wrap .article-content {
   width: 100%;
   margin: 30px 0 0 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner {
   display: flex;
   flex-direction: row;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-left {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left {
   flex: 2;
   display: flex;
   flex-direction: column;
   padding: 0 10px;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-left a {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left .profile-jdenticon {
+  margin: 0 0 20px 0;
+}
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left .article-menu {
+  display: flex;
+  flex-direction: column;
+}
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left .article-menu a {
   padding: 8px 20px;
   border: solid rgba(164, 164, 164, 0.3);
   border-width: 1px 1px 0 1px;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-left a:first-child {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left .article-menu a:first-child {
   border-radius: 5px 5px 0 0;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-left a:last-child {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left .article-menu a:last-child {
   border-radius: 0 0 5px 5px;
   border-width: 1px;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-left a:hover {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-left .article-menu a:hover {
   background: #1e71ff;
   color: #EEE;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-right {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-right {
   flex: 8;
 }
-.article2 .article-inner2 .article-inner-wrap .article-content2 .article-content-inner .article-content-right .article-content-wrap {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-right .article-content-wrap {
   padding: 0 10px;
 }
-.article2 .article-footer2 {
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-right .article-content-wrap .profile-info h2 {
+  margin: 10px 0 0 0;
+  font-size: 32px;
+}
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-right .article-content-wrap .profile-info p {
+  margin: 5px 0 0 0;
+  font-size: 16px;
+}
+.article .article-inner .article-inner-wrap .article-content .article-content-inner .article-content-right .article-content-wrap .profile-info p span {
+  color: rgb(173, 181, 189);
+  font-size: 14px;
+}
+.article .article-footer {
   display: flex;
   justify-content: end;
   width: 100%;
 }
-.article2 .article-footer2 .article-btn {
+.article .article-footer .article-btn {
   display: flex;
   gap: 10px;
   margin: 15px 10px;
 }
-.article2 .article-footer2 .article-btn a {
+.article .article-footer .article-btn a {
   padding: 9.2px 20px;
   border-radius: 0.75rem;
   background: #1e71ff;
@@ -641,5 +587,7 @@ body a {
   color: #EEE;
   border: none;
 }
+
+/* --- Profile View --- */
 
 /*# sourceMappingURL=style.css.map */

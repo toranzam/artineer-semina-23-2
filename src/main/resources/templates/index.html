@@ -1,17 +1,22 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org"
-      xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Artineer 세미나 프로젝트</title>
     <link rel="stylesheet" href="/css/style.css">
+<!--        <script src="/node_modules/jdenticon/dist/jdenticon.js"></script>-->
+<!--    <script src="/node_modules/jdenticon/bin/jdenticon.js"></script>-->
+
+    <script src="https://cdn.jsdelivr.net/npm/jdenticon@3.2.0/dist/jdenticon.min.js" async
+            integrity="sha384-yBhgDqxM50qJV5JPdayci8wCfooqvhFYbIKhv0hTtLvfeeyJMJCscRfFNKIxt43M" crossorigin="anonymous">
+    </script>
 </head>
 <body>
 
 
-<div  th:replace="~{fragments/header :: header}"></div>
+<div th:replace="~{fragments/header :: header}"></div>
 
 
 <section class="index-section">
@@ -28,12 +33,12 @@
                         Artineer 웹1조가 만들어온 세미나 웹 프로젝트
                         <!--                        더 쉽고, 더 편리한 나의 일상에 맞는 채팅앱이 여기있습니다.-->
                     </p>
-                    <button class="button-style-white">
-                        다운로드
-                    </button>
-                    <button class="button-style-transparent">
-                        데모 시작
-                    </button>
+                    <!--                    <button class="button-style-white">-->
+                    <!--                        다운로드-->
+                    <!--                    </button>-->
+                    <!--                    <button class="button-style-transparent">-->
+                    <!--                        데모 시작-->
+                    <!--                    </button>-->
                 </div>
             </div>
             <div class="right-box">
@@ -43,6 +48,7 @@
     </div>
 
 </section>
+
 
 </body>
 </html>
